@@ -1,0 +1,139 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body><form action="" method="post"><table width="593" border="1">#}
+{#  <tr>#}
+{#    <td width="84">From Date</td>#}
+{#    <td width="168"><label for="textfield"></label>#}
+{#      <input type="text" name="textfield" id="textfield" /></td>#}
+{#    <td width="76">To Date</td>#}
+{#    <td width="168"><label for="textfield2"></label>#}
+{#      <input type="text" name="textfield2" id="textfield2" /></td>#}
+{#    <td width="63"><input type="submit" name="button" id="button" value="Search" /></td>#}
+{#  </tr>#}
+{#</table>#}
+{##}
+{#  <table width="593" border="1">#}
+{#    <tr>#}
+{#      <th width="89" scope="col">Sl.no</th>#}
+{#      <th width="152" scope="col">Date</th>#}
+{#      <th width="330" scope="col">Notification</th>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>&nbsp;</td>#}
+{#      <td>&nbsp;</td>#}
+{#      <td>&nbsp;</td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Notification History - BookSwap</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Georgia', serif;
+    background-color: #f7f3e9;
+    color: #5a3e2b;
+    margin: 0;
+    padding: 20px;
+  }
+  .container {
+    max-width: 800px;
+    margin: auto;
+    background: #fffdf6;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #8b5d33;
+    font-size: 24px;
+  }
+  .search-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .search-bar input {
+    padding: 8px;
+    border: 1px solid #8b5d33;
+    border-radius: 5px;
+  }
+  .search-bar button {
+    background-color: #8b5d33;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .search-bar button:hover {
+    background-color: #6b4227;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  th {
+    background-color: #8b5d33;
+    color: white;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Notification History</h1>
+  <form action="" method="post">
+    <div class="search-bar">
+      <input type="date" name="from_date" id="from_date" placeholder="From Date" required />
+      <input type="date" name="to_date" id="to_date" placeholder="To Date" required />
+      <button type="submit">Search</button>
+    </div>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>Sl. No</th>
+        <th>Date</th>
+        <th>Notification</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="3">No notifications found</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

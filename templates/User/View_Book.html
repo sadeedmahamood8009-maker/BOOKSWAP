@@ -1,0 +1,408 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="/myapp/View_Book_post/">#}
+{#  {% csrf_token %}#}
+{#  <table width="387" height="30" border="1">#}
+{#    <tr>#}
+{#      <td width="117">Book Name</td>#}
+{#      <td width="182"><label for="textfield"></label>#}
+{#      <input type="text" name="textfield" id="textfield" /></td>#}
+{#      <td width="66"><input type="submit" name="button" id="button" value="Search" /></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#  <table width="742" height="59" border="1">#}
+{#    <tr>#}
+{#      <th scope="col">Sl.no</th>#}
+{#      <th scope="col">photo</th>#}
+{#      <th scope="col">Book Name</th>#}
+{#      <th scope="col">Condition</th>#}
+{#      <th scope="col">Prize</th>#}
+{#      <th scope="col">Author Name</th>#}
+{#      <th scope="col">description</th>#}
+{#      <th scope="col">Action</th>#}
+{#      <th scope="col">Request</th>#}
+{#      <th scope="col">Review</th>#}
+{#    </tr>#}
+{#      {% for i in data %}#}
+{#    <tr>#}
+{#      <td>{{ forloop.counter }}</td>#}
+{#      <td><img src="{{ i.photo }}" height="75" width="75"></td>#}
+{#      <td>{{ i.name }}</td>#}
+{#      <td>{{ i.condition }}</td>#}
+{#      <td>{{ i.prize }}</td>#}
+{#      <td>{{ i.author_name }}</td>#}
+{#      <td>{{ i.description }}</td>#}
+{#        <td><a href="/myapp/Update_Book/{{ i.id }}">Edit</a>#}
+{#      <a href="/myapp/Delete_Book/{{ i.id }}">Delete</a></td>#}
+{#      <td><a href="/myapp/View_User_Request/{{ i.id }}">Request</a></td>#}
+{#      <td><a href="/myapp/View_Review/{{ i.id }}">Review</a></td>#}
+{#    </tr>#}
+{#      {% endfor %}#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+
+{#<!DOCTYPE html>#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Book Management - BookSwap</title>#}
+{#<style>#}
+{#  body {#}
+{#    font-family: 'Georgia', serif;#}
+{#    background-color: #f7f3e9;#}
+{#    margin: 0;#}
+{#    padding: 0;#}
+{#  }#}
+{##}
+{#  .container {#}
+{#    width: 90%;#}
+{#    margin: 20px auto;#}
+{#  }#}
+{##}
+{#  .header {#}
+{#    text-align: center;#}
+{#    margin-bottom: 30px;#}
+{#  }#}
+{##}
+{#  .header h6 {#}
+{#    color: #8b5d33;#}
+{#    text-transform: uppercase;#}
+{#    letter-spacing: 2px;#}
+{#    margin-bottom: 10px;#}
+{#  }#}
+{##}
+{#  .header h1 {#}
+{#    color: #5a3e2b;#}
+{#    font-size: 36px;#}
+{#    text-transform: uppercase;#}
+{#  }#}
+{##}
+{#  .search-bar {#}
+{#    display: flex;#}
+{#    justify-content: center;#}
+{#    margin-bottom: 20px;#}
+{#  }#}
+{##}
+{#  .search-bar input[type="text"] {#}
+{#    width: 300px;#}
+{#    padding: 10px;#}
+{#    border: 1px solid #ddd;#}
+{#    border-radius: 6px;#}
+{#    font-size: 14px;#}
+{#  }#}
+{##}
+{#  .search-bar input[type="submit"] {#}
+{#    background-color: #8b5d33;#}
+{#    color: #fff;#}
+{#    border: none;#}
+{#    border-radius: 6px;#}
+{#    padding: 10px 20px;#}
+{#    font-size: 14px;#}
+{#    cursor: pointer;#}
+{#    margin-left: 10px;#}
+{#  }#}
+{##}
+{#  .search-bar input[type="submit"]:hover {#}
+{#    background-color: #6b4227;#}
+{#  }#}
+{##}
+{#  table {#}
+{#    width: 100%;#}
+{#    border-collapse: collapse;#}
+{#    margin-top: 20px;#}
+{#    background-color: #fffdf6;#}
+{#    border: 1px solid #ddd;#}
+{#    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);#}
+{#  }#}
+{##}
+{#  table th, table td {#}
+{#    text-align: left;#}
+{#    padding: 12px;#}
+{#    border-bottom: 1px solid #ddd;#}
+{#  }#}
+{##}
+{#  table th {#}
+{#    background-color: #f7e9d7;#}
+{#    color: #5a3e2b;#}
+{#    font-weight: bold;#}
+{#    text-transform: uppercase;#}
+{#  }#}
+{##}
+{#  table tr:hover {#}
+{#    background-color: #f7f3e9;#}
+{#  }#}
+{##}
+{#  table img {#}
+{#    border-radius: 6px;#}
+{#  }#}
+{##}
+{#  .action-links a {#}
+{#    margin-right: 10px;#}
+{#    color: #8b5d33;#}
+{#    text-decoration: none;#}
+{#    font-weight: bold;#}
+{#  }#}
+{##}
+{#  .action-links a:hover {#}
+{#    color: #6b4227;#}
+{#  }#}
+{##}
+{#  .no-data {#}
+{#    text-align: center;#}
+{#    margin-top: 20px;#}
+{#    color: #5a3e2b;#}
+{#    font-size: 18px;#}
+{#  }#}
+{#</style>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="/myapp/View_Book_post/">#}
+{#<div class="container">#}
+{#  <div class="header">#}
+{#    <h6>BookSwap</h6>#}
+{#    <h1>Manage Books</h1>#}
+{#  </div>#}
+{##}
+{#  {% csrf_token %}#}
+{#  <div class="search-bar">#}
+{#    <input type="text" name="textfield" id="textfield" placeholder="Search for a book..." />#}
+{#    <input type="submit" name="button" id="button" value="Search" />#}
+{#  </div>#}
+{##}
+{#  {% if data %}#}
+{#  <table>#}
+{#    <thead>#}
+{#      <tr>#}
+{#        <th>Sl. No</th>#}
+{#        <th>Photo</th>#}
+{#        <th>Book Name</th>#}
+{#        <th>Condition</th>#}
+{#        <th>Price</th>#}
+{#        <th>Point</th>#}
+{#        <th>Author Name</th>#}
+{#        <th>Description</th>#}
+{#        <th>Status</th>#}
+{#        <th>Action</th>#}
+{#        <th>Request</th>#}
+{#        <th>Review</th>#}
+{#      </tr>#}
+{#    </thead>#}
+{#    <tbody>#}
+{#      {% for i in data %}#}
+{#      <tr>#}
+{#        <td>{{ forloop.counter }}</td>#}
+{#        <td><img src="{{ i.photo }}" height="75" width="75" alt="Book Photo"></td>#}
+{#        <td>{{ i.name }}</td>#}
+{#        <td>{{ i.condition }}</td>#}
+{#        <td>{{ i.prize }}</td>#}
+{#          <td>{{ i.point }}</td>#}
+{#        <td>{{ i.author_name }}</td>#}
+{#        <td>{{ i.description }}</td>#}
+{#        <td>{{ i.status }}</td>#}
+{#        <td class="action-links">#}
+{#          <a href="/myapp/Update_Book/{{ i.id }}">Edit</a>#}
+{#          <a href="/myapp/Delete_Book/{{ i.id }}">Delete</a>#}
+{#        </td>#}
+{#        <td class="action-links"><a href="/myapp/View_User_Request/{{ i.id }}">Request</a></td>#}
+{#        <td class="action-links"><a href="/myapp/View_Review/{{ i.id }}">Review</a></td>#}
+{#      </tr>#}
+{#      {% endfor %}#}
+{#    </tbody>#}
+{#  </table>#}
+{#  {% else %}#}
+{#  <div class="no-data">No books found. Please try searching for something else.</div>#}
+{#  {% endif %}#}
+{#</div>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+{##}
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Book Management - BookSwap</title>
+<style>
+  body {
+    font-family: 'Georgia', serif;
+    background-color: #f7f3e9;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .header h6 {
+    color: #8b5d33;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+
+  .header h1 {
+    color: #5a3e2b;
+    font-size: 36px;
+    text-transform: uppercase;
+  }
+
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .search-bar input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  .search-bar input[type="submit"] {
+    background-color: #8b5d33;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  .search-bar input[type="submit"]:hover {
+    background-color: #6b4227;
+  }
+
+  /* Table Grid Layout */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fffdf6;
+    border: 2px solid #d3d3d3; /* Light gray border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    text-align: center;
+    padding: 12px;
+    border: 1px solid #d3d3d3; /* Light gray grid lines */
+}
+
+table th {
+    background-color: #8b5d33;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+table tr:hover {
+    background-color: #f7f3e9;
+}
+
+
+  table img {
+    border-radius: 6px;
+  }
+
+  .action-links a {
+    margin-right: 10px;
+    color: #8b5d33;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .action-links a:hover {
+    color: #6b4227;
+  }
+
+  .no-data {
+    text-align: center;
+    margin-top: 20px;
+    color: #5a3e2b;
+    font-size: 18px;
+  }
+</style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/View_Book_post/">
+<div class="container">
+  <div class="header">
+    <h6>BookSwap</h6>
+    <h1>Manage Books</h1>
+  </div>
+
+  {% csrf_token %}
+  <div class="search-bar">
+    <input type="text" name="textfield" id="textfield" placeholder="Search for a book..." />
+    <input type="submit" name="button" id="button" value="Search" />
+  </div>
+
+  {% if data %}
+  <table>
+    <thead>
+      <tr>
+        <th>Sl. No</th>
+        <th>Photo</th>
+        <th>Book Name</th>
+        <th>Condition</th>
+        <th>Point</th>
+        <th>Author Name</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Action</th>
+        <th>Request</th>
+        <th>Review</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in data %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td><img src="{{ i.photo }}" height="75" width="75" alt="Book Photo"></td>
+        <td>{{ i.name }}</td>
+        <td>{{ i.condition }}</td>
+        <td>{{ i.point }}</td>
+        <td>{{ i.author_name }}</td>
+        <td>{{ i.description }}</td>
+        <td>{{ i.status }}</td>
+        <td class="action-links">
+          <a href="/myapp/Update_Book/{{ i.id }}">Edit</a>
+          <a href="/myapp/Delete_Book/{{ i.id }}">Delete</a>
+        </td>
+        <td class="action-links"><a href="/myapp/View_User_Request/{{ i.id }}">Request</a></td>
+        <td class="action-links"><a href="/myapp/View_Review/{{ i.id }}">Review</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="no-data">No books found. Please try searching for something else.</div>
+  {% endif %}
+</div>
+</form>
+</body>
+</html>

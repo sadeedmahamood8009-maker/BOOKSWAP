@@ -1,0 +1,332 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#{% extends "Admin/homeindex.html" %}#}
+{#{% block body %}#}
+{##}
+{#<body><form action="/myapp/Book_post/" method="post">#}
+{#<div class="container-fluid py-5">#}
+{#        <div class="container">#}
+{#            <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">#}
+{#                <h6 class="text-primary text-uppercase">BOOk</h6>#}
+{#                <h1 class="display-5 text-uppercase mb-0">books</h1>#}
+{#            </div>#}
+{#{% csrf_token %}#}
+{##}
+{#  <table class="pull-left">#}
+{#    <tr>#}
+{#      <td>#}
+{#      <input type="text" name="textfield" id="textfield" class="form-control"></td>#}
+{#      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-primary"></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#  <table class="table table-bordered">#}
+{#    <tr>#}
+{#      <td>Sl.no</td>#}
+{#      <td>photo</td>#}
+{#      <td>Book name</td>#}
+{#      <td>Condition</td>#}
+{#      <td>prize</td>#}
+{#      <td>Author name</td>#}
+{#      <td>Description</td>#}
+{#      <td>Status</td>#}
+{#    </tr>#}
+{#      {% for i in data %}#}
+{#    <tr>#}
+{#      <td>{{ forloop.counter }}</td>#}
+{#      <td><img src="{{ i.photo }}" height="75" width="75"></td>#}
+{#      <td>&nbsp;{{ i.name }}</td>#}
+{#      <td>{{ i.condition }}</td>#}
+{#      <td>&nbsp;{{ i.prize}}</td>#}
+{#      <td>{{ i.author_name }}</td>#}
+{#      <td>{{ i.description }}</td>#}
+{#      <td>{{ i.status }}</td>#}
+{#    </tr>#}
+{#      {% endfor %}#}
+{#  </table>#}
+{#        </div>#}
+{# </div>#}
+{##}
+{#  <p>&nbsp;</p>#}
+{#</form>#}
+{#</body>#}
+{#{% endblock %}#}
+{#</html>#}
+
+
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#<meta charset="UTF-8">#}
+{#<meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#<title>Book List</title>#}
+{#<style>#}
+{#  body {#}
+{#    font-family: 'Georgia', serif;#}
+{#    background-color: #f7f3e9;#}
+{#    margin: 0;#}
+{#    padding: 20px;#}
+{#  }#}
+{##}
+{#  .container {#}
+{#    max-width: 900px;#}
+{#    margin: auto;#}
+{#    background: #fffdf6;#}
+{#    padding: 25px;#}
+{#    border-radius: 12px;#}
+{#    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);#}
+{#  }#}
+{##}
+{#  h1 {#}
+{#    text-align: center;#}
+{#    color: #5a3e2b;#}
+{#    font-size: 28px;#}
+{#    margin-bottom: 15px;#}
+{#  }#}
+{##}
+{#  .search-bar {#}
+{#    display: flex;#}
+{#    justify-content: center;#}
+{#    margin-bottom: 20px;#}
+{#  }#}
+{##}
+{#  input[type="text"] {#}
+{#    padding: 10px;#}
+{#    border: 1px solid #ccc;#}
+{#    border-radius: 6px;#}
+{#    font-family: 'Georgia', serif;#}
+{#    width: 70%;#}
+{#  }#}
+{##}
+{#  input[type="submit"] {#}
+{#    background-color: #8b5d33;#}
+{#    color: white;#}
+{#    border: none;#}
+{#    padding: 10px 15px;#}
+{#    border-radius: 6px;#}
+{#    margin-left: 10px;#}
+{#    cursor: pointer;#}
+{#  }#}
+{##}
+{#  input[type="submit"]:hover {#}
+{#    background-color: #6b4227;#}
+{#  }#}
+{##}
+{#  table {#}
+{#    width: 100%;#}
+{#    border-collapse: collapse;#}
+{#    margin-top: 15px;#}
+{#  }#}
+{##}
+{#  th, td {#}
+{#    padding: 12px;#}
+{#    text-align: left;#}
+{#    border-bottom: 1px solid #ddd;#}
+{#  }#}
+{##}
+{#  th {#}
+{#    background: #8b5d33;#}
+{#    color: white;#}
+{#  }#}
+{##}
+{#  tr:nth-child(odd) {#}
+{#    background: #fbf7ef;#}
+{#  }#}
+{##}
+{#  tr:nth-child(even) {#}
+{#    background: #fffdf6;#}
+{#  }#}
+{##}
+{#  .book-img {#}
+{#    width: 75px;#}
+{#    height: 75px;#}
+{#    border-radius: 50%;#}
+{#    object-fit: cover;#}
+{#  }#}
+{#</style>#}
+{#</head>#}
+{##}
+{#{% extends "Admin/homeindex.html" %}#}
+{#{% block body %}#}
+{##}
+{#<body>#}
+{#  <form action="/myapp/Book_post/" method="post">#}
+{#    <div class="container">#}
+{#      <h1>Book List</h1>#}
+{##}
+{#      {% csrf_token %}#}
+{##}
+{#      <div class="search-bar">#}
+{#        <input type="text" name="textfield" id="textfield" placeholder="Search books...">#}
+{#        <input type="submit" name="button" id="button" value="Search">#}
+{#      </div>#}
+{##}
+{#      <table>#}
+{#        <tr>#}
+{#          <th>Sl.no</th>#}
+{#          <th>Photo</th>#}
+{#          <th>Book Name</th>#}
+{#          <th>Condition</th>#}
+{#          <th>Price</th>#}
+{#          <th>Author</th>#}
+{#          <th>Description</th>#}
+{#          <th>Status</th>#}
+{#        </tr>#}
+{#        {% for i in data %}#}
+{#        <tr>#}
+{#          <td>{{ forloop.counter }}</td>#}
+{#          <td><img src="{{ i.photo }}" class="book-img"></td>#}
+{#          <td>{{ i.name }}</td>#}
+{#          <td>{{ i.condition }}</td>#}
+{#          <td>{{ i.prize }}</td>#}
+{#          <td>{{ i.author_name }}</td>#}
+{#          <td>{{ i.description }}</td>#}
+{#          <td>{{ i.status }}</td>#}
+{#        </tr>#}
+{#        {% endfor %}#}
+{#      </table>#}
+{#    </div>#}
+{#  </form>#}
+{#</body>#}
+{#{% endblock %}#}
+{#</html>#}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book List</title>
+<style>
+  body {
+    font-family: 'Georgia', serif;
+    background-color: #f7f3e9;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: auto;
+    background: #fffdf6;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    text-align: center;
+    color: #5a3e2b;
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: 'Georgia', serif;
+    width: 70%;
+  }
+
+  input[type="submit"] {
+    background-color: #8b5d33;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #6b4227;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    border: 1px solid #ddd; /* Light grid line */
+  }
+
+  th, td {
+    padding: 12px;
+    text-align: center; /* Align text in the center */
+    border: 1px solid #ddd; /* Light grid line for structure */
+  }
+
+  th {
+    background: #8b5d33;
+    color: white;
+  }
+
+  tr:nth-child(odd) {
+    background: #fbf7ef;
+  }
+
+  tr:nth-child(even) {
+    background: #fffdf6;
+  }
+
+  .book-img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+</style>
+</head>
+
+<body>
+  <form action="/myapp/Book_post/" method="post">
+    <div class="container">
+      <h1>Book List</h1>
+
+      {% csrf_token %}
+
+      <div class="search-bar">
+        <input type="text" name="textfield" id="textfield" placeholder="Search books...">
+        <input type="submit" name="button" id="button" value="Search">
+      </div>
+
+      <table>
+        <tr>
+          <th>Sl.no</th>
+          <th>Photo</th>
+          <th>Book Name</th>
+          <th>Condition</th>
+          <th>Price</th>
+          <th>Author</th>
+          <th>Description</th>
+          <th>Status</th>
+        </tr>
+        {% for i in data %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td><img src="{{ i.photo }}" class="book-img"></td>
+          <td>{{ i.name }}</td>
+          <td>{{ i.condition }}</td>
+          <td>{{ i.prize }}</td>
+          <td>{{ i.author_name }}</td>
+          <td>{{ i.description }}</td>
+          <td>{{ i.status }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </form>
+</body>
+</html>

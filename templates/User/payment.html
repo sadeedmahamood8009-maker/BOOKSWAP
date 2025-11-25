@@ -1,0 +1,109 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <!-- Other head elements -->#}
+{#    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>#}
+{#</head>#}
+{#<body>#}
+{#    <button id="pay-button">Proceed to payment</button>#}
+{##}
+{#    <input type="hidden" value="{{ id }}" name="id">#}
+{#    <script>#}
+{#        var options = {#}
+{#            key: '{{ razorpay_api_key }}',#}
+{#            amount: '{{ amount }}',#}
+{#            currency: '{{ currency }}',#}
+{#            name: 'VehiMarket',#}
+{#            description: 'Purchase Description',#}
+{#            image: 'path_to_logo.png',#}
+{#            prefill: {#}
+{#                name: 'Your Name',#}
+{#                email: 'your_email@example.com',#}
+{#            },#}
+{#            theme: {#}
+{#                color: '#F37254',#}
+{#            },#}
+{#            handler: function(response) {#}
+{#                // This function will be called on successful payment#}
+{#                console.log(response);#}
+{#                alert('Payment successful. Payment ID: ' + response.razorpay_payment_id);#}
+{#                window.location='/myapp/userindex/'#}
+{#                // You can perform further actions here, like updating your database#}
+{#            },#}
+{#        };#}
+{##}
+{#        var rzp = new Razorpay(options);#}
+{##}
+{#        document.getElementById('pay-button').onclick = function () {#}
+{#            rzp.open();#}
+{#        };#}
+{#    </script>#}
+{#</body>#}
+{#</html>#}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstrap Payment</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f7f3e9;
+            text-align: center;
+            padding: 50px;
+        }
+        #pay-button {
+            background-color: #8b5d33;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        #pay-button:hover {
+            background-color: #6b4227;
+        }
+    </style>
+</head>
+<body>
+    <h1>Support Bookstrap with a Tip</h1>
+    <p>Buy the admin a virtual coffee ☕ and help keep Bookstrap running smoothly!</p>
+    <button id="pay-button">Proceed to Payment</button>
+    <input type="hidden" value="{{ id }}" name="id">
+    <script>
+        var options = {
+            key: '{{ razorpay_api_key }}',
+            amount: '{{ amount }}',
+            currency: '{{ currency }}',
+            name: 'Bookstrap',
+            description: 'Support the platform',
+            image: 'path_to_logo.png',
+            prefill: {
+                name: 'Your Name',
+                email: 'your_email@example.com',
+            },
+            theme: {
+                color: '#8b5d33',
+            },
+            handler: function(response) {
+                console.log(response);
+                alert('Thank you for your support! Payment ID: ' + response.razorpay_payment_id);
+                window.location='/myapp/userhome/';
+            },
+        };
+
+        var rzp = new Razorpay(options);
+        document.getElementById('pay-button').onclick = function () {
+            rzp.open();
+        };
+    </script>
+</body>
+</html>

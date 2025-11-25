@@ -1,0 +1,774 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="">#}
+{#  <table width="200" border="1">#}
+{#    <tr>#}
+{#      <td>Name</td>#}
+{#      <td>{{ data.name }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Date of Birth</td>#}
+{#      <td>{{ data.date_of_birth }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Place</td>#}
+{#      <td>{{ data.place }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Post</td>#}
+{#      <td>{{ data.post }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Pin Code</td>#}
+{#      <td>{{ data.pin }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>District</td>#}
+{#      <td>{{ data.district }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td height="34">State</td>#}
+{#      <td>{{ data.state }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Photo</td>#}
+{#      <td><img src="{{ data.photo }}" height="65%" width="65%"></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Gender</td>#}
+{#      <td>{{ data.gender }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Phone number</td>#}
+{#      <td>{{ data.phone_number }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td height="41">e-mail</td>#}
+{#      <td>{{ data.email }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td height="51" colspan="2">#}
+{#          <a href="/myapp/Update_Profile/">Edit</a>#}
+{#        <input type="submit" name="button" id="button" value="update" />#}
+{#    </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+{##}
+{##}
+
+{##}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Profile Page</title>#}
+{#<style>#}
+{#  body {#}
+{#    font-family: Arial, sans-serif;#}
+{#    background-color: #f4f4f9;#}
+{#    margin: 0;#}
+{#    padding: 0;#}
+{#    display: flex;#}
+{#    justify-content: center;#}
+{#    align-items: center;#}
+{#    height: 100vh;#}
+{#  }#}
+{##}
+{#  form {#}
+{#    background-color: #ffffff;#}
+{#    border: 1px solid #ddd;#}
+{#    border-radius: 8px;#}
+{#    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);#}
+{#    padding: 20px;#}
+{#    width: 400px;#}
+{#  }#}
+{##}
+{#  table {#}
+{#    width: 100%;#}
+{#    border-collapse: collapse;#}
+{#  }#}
+{##}
+{#  table td {#}
+{#    padding: 10px;#}
+{#    vertical-align: top;#}
+{#  }#}
+{##}
+{#  table tr:nth-child(odd) td {#}
+{#    background-color: #f9f9f9;#}
+{#  }#}
+{##}
+{#  table tr:nth-child(even) td {#}
+{#    background-color: #ffffff;#}
+{#  }#}
+{##}
+{#  table td:first-child {#}
+{#    font-weight: bold;#}
+{#    color: #333;#}
+{#    width: 40%;#}
+{#  }#}
+{##}
+{#  img {#}
+{#    max-width: 100%;#}
+{#    border-radius: 4px;#}
+{#  }#}
+{##}
+{#  a {#}
+{#    text-decoration: none;#}
+{#    color: #007bff;#}
+{#    font-weight: bold;#}
+{#  }#}
+{##}
+{#  a:hover {#}
+{#    text-decoration: underline;#}
+{#  }#}
+{##}
+{#  input[type="submit"] {#}
+{#    background-color: #28a745;#}
+{#    color: #ffffff;#}
+{#    border: none;#}
+{#    border-radius: 4px;#}
+{#    padding: 10px 15px;#}
+{#    cursor: pointer;#}
+{#    font-size: 14px;#}
+{#  }#}
+{##}
+{#  input[type="submit"]:hover {#}
+{#    background-color: #218838;#}
+{#  }#}
+{#</style>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="">#}
+{#  <table>#}
+{#    <tr>#}
+{#      <td>Name</td>#}
+{#      <td>{{ data.name }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Date of Birth</td>#}
+{#      <td>{{ data.date_of_birth }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Place</td>#}
+{#      <td>{{ data.place }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Post</td>#}
+{#      <td>{{ data.post }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Pin Code</td>#}
+{#      <td>{{ data.pin }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>District</td>#}
+{#      <td>{{ data.district }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>State</td>#}
+{#      <td>{{ data.state }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Photo</td>#}
+{#      <td><img src="{{ data.photo }}" alt="Profile Photo"></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Gender</td>#}
+{#      <td>{{ data.gender }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Phone Number</td>#}
+{#      <td>{{ data.phone_number }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Email</td>#}
+{#      <td>{{ data.email }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td colspan="2" style="text-align: center;">#}
+{#        <a href="/myapp/Update_Profile/">Edit</a>#}
+{#        <input type="submit" name="button" id="button" value="Update" />#}
+{#      </td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+{##}
+
+
+{##}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>View Profile - BookSwap</title>#}
+{#<style>#}
+{#  body {#}
+{#    font-family: 'Georgia', serif;#}
+{#    background-color: #f7f3e9;#}
+{#    margin: 0;#}
+{#    padding: 0;#}
+{#    display: flex;#}
+{#    justify-content: center;#}
+{#    align-items: center;#}
+{#    height: 100vh;#}
+{#  }#}
+{##}
+{#  form {#}
+{#    background-color: #fffdf6;#}
+{#    border: 1px solid #ddd;#}
+{#    border-radius: 12px;#}
+{#    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);#}
+{#    padding: 30px;#}
+{#    width: 400px;#}
+{#      height: 80px;#}
+{#    font-family: 'Georgia', serif;#}
+{#  }#}
+{##}
+{#  h1 {#}
+{#    text-align: center;#}
+{#    color: #5a3e2b;#}
+{#    margin-bottom: 20px;#}
+{#  }#}
+{##}
+{#  table {#}
+{#    width: 100%;#}
+{#    border-collapse: collapse;#}
+{#  }#}
+{##}
+{#  table td {#}
+{#    padding: 10px;#}
+{#    vertical-align: top;#}
+{#  }#}
+{##}
+{#  table tr:nth-child(odd) td {#}
+{#    background-color: #fbf7ef;#}
+{#  }#}
+{##}
+{#  table tr:nth-child(even) td {#}
+{#    background-color: #fffdf6;#}
+{#  }#}
+{##}
+{#  table td:first-child {#}
+{#    font-weight: bold;#}
+{#    color: #5a3e2b;#}
+{#    width: 40%;#}
+{#  }#}
+{##}
+{#  img {#}
+{#    max-width: 100%;#}
+{#    border-radius: 6px;#}
+{#  }#}
+{##}
+{#  a.button {#}
+{#    text-decoration: none;#}
+{#    color: #8b5d33;#}
+{#    font-weight: bold;#}
+{#      background-color: #8b5d33;#}
+{#    color: #ffffff;#}
+{#    border: none;#}
+{#    border-radius: 6px;#}
+{#    padding: 10px 20px;#}
+{#    cursor: pointer;#}
+{#    font-size: 14px;#}
+{#    font-family: 'Georgia', serif;#}
+{#    display: block;#}
+{#    margin: 20px auto 0;#}
+{#  }#}
+{##}
+{#  a:hover {#}
+{#    text-decoration: underline;#}
+{#       background-color: #6b4227;#}
+{#  }#}
+{##}
+{#  input[type="submit"] {#}
+{#    background-color: #8b5d33;#}
+{#    color: #ffffff;#}
+{#    border: none;#}
+{#    border-radius: 6px;#}
+{#    padding: 10px 20px;#}
+{#    cursor: pointer;#}
+{#    font-size: 14px;#}
+{#    font-family: 'Georgia', serif;#}
+{#    display: block;#}
+{#    margin: 20px auto 0;#}
+{#  }#}
+{##}
+{#  input[type="submit"]:hover {#}
+{#    background-color: #6b4227;#}
+{#  }#}
+{#</style>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="">#}
+{#  <h1>Your Profile</h1>#}
+{#  <table>#}
+{#    <tr>#}
+{#      <td>Name</td>#}
+{#      <td>{{ data.name }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Date of Birth</td>#}
+{#      <td>{{ data.date_of_birth }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Place</td>#}
+{#      <td>{{ data.place }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Post</td>#}
+{#      <td>{{ data.post }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Pin Code</td>#}
+{#      <td>{{ data.pin }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>District</td>#}
+{#      <td>{{ data.district }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>State</td>#}
+{#      <td>{{ data.state }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Photo</td>#}
+{#      <td><img src="{{ data.photo }}" alt="Profile Photo"></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Gender</td>#}
+{#      <td>{{ data.gender }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Phone Number</td>#}
+{#      <td>{{ data.phone_number }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Email</td>#}
+{#      <td>{{ data.email }}</td>#}
+{#    </tr>#}
+{#      <tr>#}
+{#      <td>B-Coins</td>#}
+{#      <td>{{ data.point }}</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td colspan="2" style="text-align: center;">#}
+{#        <a href="/myapp/Update_Profile/" class="button">Edit Profile</a>#}
+{#        <input type="submit" name="button" id="button" value="Update" />#}
+{#      </td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+<!--top one-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>View Profile - BookSwap</title>
+<style>
+  body {
+    font-family: 'Georgia', serif;
+    background-color: #f7f3e9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+
+  .container {
+    background-color: #fffdf6;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 450px;
+    width: 100%;
+    margin: 20px;
+    overflow-y: auto;
+  }
+
+  h1 {
+    text-align: center;
+    color: #5a3e2b;
+    margin-bottom: 20px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  table td {
+    padding: 10px;
+    vertical-align: top;
+  }
+
+  table tr:nth-child(odd) td {
+    background-color: #fbf7ef;
+  }
+
+  table tr:nth-child(even) td {
+    background-color: #fffdf6;
+  }
+
+  table td:first-child {
+    font-weight: bold;
+    color: #5a3e2b;
+    width: 40%;
+  }
+
+  img {
+    max-width: 100%;
+    border-radius: 6px;
+    display: block;
+    margin-top: 10px;
+  }
+
+  .button {
+    background-color: #8b5d33;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Georgia', serif;
+    display: block;
+    text-align: center;
+    margin: 20px auto 0;
+    text-decoration: none;
+  }
+
+  .button:hover {
+    background-color: #6b4227;
+  }
+
+  @media (max-width: 500px) {
+    .container {
+      padding: 20px;
+      max-width: 95%;
+    }
+
+    table td {
+      display: block;
+      width: 100%;
+    }
+  }
+</style>
+</head>
+
+<body>
+<div class="container">
+  <h1>Your Profile</h1>
+  <table>
+    <tr><td>Name</td><td>{{ data.name }}</td></tr>
+    <tr><td>Date of Birth</td><td>{{ data.date_of_birth }}</td></tr>
+    <tr><td>Place</td><td>{{ data.place }}</td></tr>
+    <tr><td>Post</td><td>{{ data.post }}</td></tr>
+    <tr><td>Pin Code</td><td>{{ data.pin }}</td></tr>
+    <tr><td>District</td><td>{{ data.district }}</td></tr>
+    <tr><td>State</td><td>{{ data.state }}</td></tr>
+    <tr><td>Photo</td><td><img src="{{ data.photo }}" alt="Profile Photo"></td></tr>
+    <tr><td>Gender</td><td>{{ data.gender }}</td></tr>
+    <tr><td>Phone Number</td><td>{{ data.phone_number }}</td></tr>
+    <tr><td>Email</td><td>{{ data.email }}</td></tr>
+    <tr><td>B-Coins</td><td>{{ data.point }}</td></tr>
+    <tr><td>Refference-id</td><td>{{ data.refference }}</td></tr>
+    <tr><td colspan="2" style="text-align: center;"><a href="/myapp/Update_Profile/" class="button">Edit Profile</a></td></tr>
+  </table>
+</div>
+</body>
+</html>
+
+
+{##}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>View Profile - Library Theme</title>#}
+{#<style>#}
+{##}
+{#  body {#}
+{#    font-family: 'Georgia', serif;#}
+{#    margin: 0;#}
+{#    padding: 0;#}
+{#    background-color: #f8f5f0;#}
+{#    color: #333;#}
+{#  }#}
+{#  .profile-container {#}
+{#    display: flex;#}
+{#    justify-content: center;#}
+{#    align-items: center;#}
+{#    min-height: 100vh;#}
+{#    padding: 40px;#}
+{#    background: url('https://example.com/library-background.jpg') no-repeat center center/cover;#}
+{#  }#}
+{#  .profile-card {#}
+{#    background-color: #fff;#}
+{#    border-radius: 16px;#}
+{#    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);#}
+{#    overflow: hidden;#}
+{#    width: 800px;#}
+{#    border: 2px solid #d4a373;#}
+{#  }#}
+{#  .profile-header {#}
+{#    background: #d4a373;#}
+{#    padding: 20px;#}
+{#    text-align: center;#}
+{#    color: white;#}
+{#  }#}
+{#  .profile-header h2 {#}
+{#    font-family: 'Merriweather', serif;#}
+{#    margin: 0;#}
+{#  }#}
+{#  .profile-photo {#}
+{#    display: flex;#}
+{#    justify-content: center;#}
+{#    margin-top: -50px;#}
+{#  }#}
+{#  .profile-photo img {#}
+{#    width: 120px;#}
+{#    height: 120px;#}
+{#    border-radius: 50%;#}
+{#    border: 5px solid #fff;#}
+{#    object-fit: cover;#}
+{#  }#}
+{#  .profile-details {#}
+{#    padding: 30px;#}
+{#  }#}
+{#  .profile-details h3 {#}
+{#    font-family: 'Merriweather', serif;#}
+{#    color: #d4a373;#}
+{#    text-align: center;#}
+{#    margin-bottom: 20px;#}
+{#  }#}
+{#  .profile-details dl {#}
+{#    display: flex;#}
+{#    flex-wrap: wrap;#}
+{#    margin: 0;#}
+{#  }#}
+{#  .profile-details dt {#}
+{#    width: 40%;#}
+{#    font-weight: bold;#}
+{#    margin-bottom: 10px;#}
+{#  }#}
+{#  .profile-details dd {#}
+{#    width: 60%;#}
+{#    margin: 0;#}
+{#    margin-bottom: 10px;#}
+{#  }#}
+{#  .profile-details a {#}
+{#    display: inline-block;#}
+{#    margin-top: 20px;#}
+{#    padding: 10px 20px;#}
+{#    background-color: #d4a373;#}
+{#    color: white;#}
+{#    text-decoration: none;#}
+{#    border-radius: 4px;#}
+{#    text-align: center;#}
+{#    transition: background 0.3s;#}
+{#  }#}
+{#  .profile-details a:hover {#}
+{#    background-color: #b8865b;#}
+{#  }#}
+{#</style>#}
+{#</head>#}
+{##}
+{#{% extends "User/userindex.html" %}#}
+{#{% block body %}#}
+{##}
+{#<body>#}
+{# <div class="container-fluid py-5">#}
+{#        <div class="container">#}
+{#            <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">#}
+{#                <h6 class="text-primary text-uppercase">profile</h6>#}
+{#                <h1 class="display-5 text-uppercase mb-0">view profile</h1>#}
+{#            </div>#}
+{#<div class="profile-container">#}
+{#  <div class="profile-card">#}
+{#    <div class="profile-header">#}
+{#      <h2>{{ data.name }}</h2>#}
+{#    </div>#}
+{#    <div class="profile-photo">#}
+{#      <img src="{{ data.photo }}" alt="{{ data.name }}" />#}
+{#    </div>#}
+{#    <div class="profile-details">#}
+{#      <h3>Profile Details</h3>#}
+{#      <dl>#}
+{#        <dt>Date of Birth:</dt>#}
+{#        <dd>{{ data.date_of_birth }}</dd>#}
+{##}
+{#        <dt>Place:</dt>#}
+{#        <dd>{{ data.place }}</dd>#}
+{##}
+{#        <dt>Post:</dt>#}
+{#        <dd>{{ data.post }}</dd>#}
+{##}
+{#        <dt>Pin Code:</dt>#}
+{#        <dd>{{ data.pin }}</dd>#}
+{##}
+{#        <dt>District:</dt>#}
+{#        <dd>{{ data.district }}</dd>#}
+{##}
+{#        <dt>State:</dt>#}
+{#        <dd>{{ data.state }}</dd>#}
+{##}
+{#        <dt>Gender:</dt>#}
+{#        <dd>{{ data.gender }}</dd>#}
+{##}
+{#        <dt>Phone Number:</dt>#}
+{#        <dd>{{ data.phone_number }}</dd>#}
+{##}
+{#        <dt>Email:</dt>#}
+{#        <dd>{{ data.email }}</dd>#}
+{#      </dl>#}
+{#      <a href="/myapp/Update_Profile/">Edit Profile</a>#}
+{#    </div>#}
+{#  </div>#}
+{#</div>#}
+{#  </div>#}
+{#</div>#}
+{#</body>#}
+{##}
+{#{% endblock %}#}
+{##}
+{#</html>#}
+
+
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Profile Information</title>#}
+{#     <div class="container-fluid py-5">#}
+{#        <div class="container">#}
+{#            <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">#}
+{#                <h6 class="text-primary text-uppercase">BOOKS</h6>#}
+{#                <h1 class="display-5 text-uppercase mb-0">READ YOUR FAVORITE BOOKS</h1>#}
+{#            </div>#}
+{#<style>#}
+{#  body {#}
+{#    font-family: Arial, sans-serif;#}
+{#    margin: 0;#}
+{#    padding: 0;#}
+{#    background-color: #f0f2f5;#}
+{#    color: #333;#}
+{#    display: flex;#}
+{#    justify-content: center;#}
+{#    align-items: center;#}
+{#    height: 100vh;#}
+{#  }#}
+{#  .profile-container {#}
+{#    display: flex;#}
+{#    background-color: #fff;#}
+{#    border-radius: 10px;#}
+{#    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);#}
+{#    width: 600px;#}
+{#    overflow: hidden;#}
+{#  }#}
+{#  .profile-sidebar {#}
+{#    background: linear-gradient(to bottom, #ff7e5f, #feb47b);#}
+{#    padding: 20px;#}
+{#    color: white;#}
+{#    text-align: center;#}
+{#    width: 40%;#}
+{#  }#}
+{#  .profile-sidebar img {#}
+{#    border-radius: 50%;#}
+{#    width: 100px;#}
+{#    height: 100px;#}
+{#    object-fit: cover;#}
+{#    margin-bottom: 10px;#}
+{#  }#}
+{#  .profile-sidebar h3 {#}
+{#    margin: 10px 0;#}
+{#  }#}
+{#  .profile-main {#}
+{#    padding: 20px;#}
+{#    width: 60%;#}
+{#  }#}
+{#  .profile-main h3 {#}
+{#    border-bottom: 2px solid #feb47b;#}
+{#    padding-bottom: 10px;#}
+{#    margin-bottom: 20px;#}
+{#  }#}
+{#  .profile-main dl {#}
+{#    margin: 0;#}
+{#    padding: 0;#}
+{#  }#}
+{#  .profile-main dt {#}
+{#    font-weight: bold;#}
+{#    margin-bottom: 5px;#}
+{#  }#}
+{#  .profile-main dd {#}
+{#    margin: 0 0 15px;#}
+{#    padding: 0;#}
+{#  }#}
+{#  .profile-main a {#}
+{#    display: inline-block;#}
+{#    margin-top: 20px;#}
+{#    padding: 10px 20px;#}
+{#    background-color: #feb47b;#}
+{#    color: white;#}
+{#    text-decoration: none;#}
+{#    border-radius: 4px;#}
+{#    text-align: center;#}
+{#  }#}
+{#  .profile-main a:hover {#}
+{#    background-color: #ff7e5f;#}
+{#  }#}
+{#</style>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<div class="profile-container">#}
+{#  <div class="profile-sidebar">#}
+{#    <img src="{{ data.photo }}" alt="{{ data.name }}">#}
+{#    <h3>{{ data.name }}</h3>#}
+{#  </div>#}
+{#  <div class="profile-main">#}
+{#    <h3>Information</h3>#}
+{#    <dl>#}
+{#      <dt>Name:</dt>#}
+{#      <dd>{{ data.name }}</dd>#}
+{##}
+{#      <dt>Date of Birth:</dt>#}
+{#      <dd>{{ data.date_of_birth }}</dd>#}
+{##}
+{#      <dt>Address:</dt>#}
+{#      <dd>{{ data.place }}, {{ data.pin }}, {{ data.district }}, {{ data.state }}</dd>#}
+{##}
+{#      <dt>Gender:</dt>#}
+{#      <dd>{{ data.gender }}</dd>#}
+{##}
+{#      <dt>Phone number:</dt>#}
+{#      <dd>{{ data.phone_number }}</dd>#}
+{##}
+{#      <dt>Email:</dt>#}
+{#      <dd>{{ data.email }}</dd>#}
+{#    </dl>#}
+{#    <a href="/myapp/Update_Profile/">Edit Profile</a>#}
+{#  </div>#}
+{#  </div>#}
+{#</div>#}
+{##}
+{#</div>#}
+{#</body>#}
+{#</html>#}

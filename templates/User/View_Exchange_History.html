@@ -1,0 +1,199 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="/myapp/View_Exchange_History_post/">#}
+{#    {% csrf_token %}#}
+{#    <table width="200" border="1">#}
+{#  <tr>#}
+{#    <td>From Date</td>#}
+{#    <td><label for="textfield"></label>#}
+{#      <input type="date" name="textfield" id="textfield" /></td>#}
+{#    <td>To Date</td>#}
+{#    <td><label for="textfield2"></label>#}
+{#      <input type="date" name="textfield2" id="textfield2" /></td>#}
+{#    <td><input type="submit" name="button" id="button" value="Search" /></td>#}
+{#  </tr>#}
+{#</table>#}
+{##}
+{#  <table width="680" height="59" border="1">#}
+{#    <tr>#}
+{#      <th width="65" scope="col">Sl.no</th>#}
+{#      <th width="143" scope="col">User Name</th>#}
+{#      <th width="151" scope="col">Book Name</th>#}
+{#      <th width="119" scope="col">Status</th>#}
+{#      <th width="168" scope="col">Data</th>#}
+{#    </tr>#}
+{#      {% for i in data %}#}
+{#    <tr>#}
+{#      <td>{{ forloop.counter }}</td>#}
+{#      <td>{{ i.USER.name }}</td>#}
+{#      <td>{{ i.BOOK.name }}</td>#}
+{#      <td>{{ i.status }}</td>#}
+{#      <td>{{ i.date }}</td>#}
+{#    </tr>#}
+{#      {% endfor %}#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Book Exchange History</title>
+<style>
+  body {
+    font-family: 'Georgia', serif;
+    background-color: #f7f3e9;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fffdf6;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    text-align: center;
+    color: #5a3e2b;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  form {
+    margin-bottom: 20px;
+  }
+
+  .filter-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .filter-section label {
+    font-size: 16px;
+    color: #5a3e2b;
+    margin-right: 10px;
+  }
+
+  .filter-section input[type="date"] {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+  }
+
+  .filter-section input[type="submit"] {
+    background-color: #8b5d33;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 20px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .filter-section input[type="submit"]:hover {
+    background-color: #6b4227;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+
+  th, td {
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #5a3e2b;
+  }
+
+  th {
+    background-color: #f0e6d6;
+    font-weight: bold;
+  }
+
+  tr:nth-child(even) {
+    background-color: #fbf7f0;
+  }
+
+  tr:hover {
+    background-color: #f5ebde;
+  }
+
+  .no-data {
+    text-align: center;
+    color: #5a3e2b;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+</style>
+</head>
+
+<body>
+<div class="container">
+  <h1>Book Exchange History</h1>
+  <form id="form1" name="form1" method="post" action="/myapp/View_Exchange_History_post/">
+    {% csrf_token %}
+    <div class="filter-section">
+      <div>
+        <label for="textfield">From Date:</label>
+        <input type="date" name="textfield" id="textfield" />
+      </div>
+      <div>
+        <label for="textfield2">To Date:</label>
+        <input type="date" name="textfield2" id="textfield2" />
+      </div>
+      <div>
+        <input type="submit" name="button" id="button" value="Search" />
+      </div>
+    </div>
+  </form>
+
+  {% if data %}
+  <table>
+    <tr>
+      <th>Sl. No</th>
+      <th>User Name</th>
+      <th>Book Name</th>
+      <th>Status</th>
+      <th>Date</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.USER.name }}</td>
+      <td>{{ i.BOOK.name }}</td>
+      <td>{{ i.status }}</td>
+      <td>{{ i.date }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <div class="no-data">No exchange history found for the selected date range.</div>
+  {% endif %}
+</div>
+</body>
+</html>

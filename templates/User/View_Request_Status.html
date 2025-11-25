@@ -1,0 +1,226 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="/myapp/View_Request_Status_post/">#}
+{#  {% csrf_token %}#}
+{#  <table width="387" height="30" border="1">#}
+{#    <tr>#}
+{#      <td width="117">Book Name</td>#}
+{#      <td width="182"><label for="textfield"></label>#}
+{#      <input type="text" name="textfield" id="textfield" /></td>#}
+{#      <td width="66"><input type="submit" name="button" id="button" value="Search" /></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#  <table width="742" height="59" border="1">#}
+{#    <tr>#}
+{#      <th scope="col">Sl.no</th>#}
+{#      <th scope="col">photo</th>#}
+{#      <th scope="col">Book Name</th>#}
+{#      <th scope="col">Condition</th>#}
+{#      <th scope="col">Prize</th>#}
+{#      <th scope="col">Author Name</th>#}
+{#      <th scope="col">description</th>#}
+{#      <th scope="col">Date</th>#}
+{#      <th scope="col">Status</th>#}
+{#      <th scope="col">Review</th>#}
+{#    </tr>#}
+{#      {% for i in data %}#}
+{#    <tr>#}
+{#      <td>{{ forloop.counter }}</td>#}
+{#      <td><img src="{{ i.BOOK.photo }}" height="75" width="75"></td>#}
+{#      <td>{{ i.BOOK.name }}</td>#}
+{#      <td>{{ i.BOOK.condition }}</td>#}
+{#      <td>{{ i.BOOK.prize }}</td>#}
+{#      <td>{{ i.BOOK.author_name }}</td>#}
+{#      <td>{{ i.BOOK.description }}</td>#}
+{#      <td>{{ i.date }}</td>#}
+{#      <td>{{ i.status }}</td>#}
+{#      <td>{% if i.status == "approved" %}<a href="/myapp/Review/{{ i.BOOK.id }}">Review</a>{% endif %}</td>#}
+{##}
+{#      {% endfor %}#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Request Status</title>
+<style>
+  body {
+    font-family: 'Georgia', serif;
+    background-color: #f7f3e9;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .container {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .header h1 {
+    color: #5a3e2b;
+    font-size: 28px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .search-bar input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  .search-bar input[type="submit"] {
+    background-color: #8b5d33;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  .search-bar input[type="submit"]:hover {
+    background-color: #6b4227;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fffdf6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  th, td {
+    text-align: center;
+    padding: 12px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+  }
+
+  th {
+    background-color: #8b5d33;
+    color: white;
+    text-transform: uppercase;
+  }
+
+  td {
+    color: #5a3e2b;
+  }
+
+  tr:hover {
+    background-color: #f5e9da;
+  }
+
+  img {
+    height: 75px;
+    width: 75px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .no-data {
+    text-align: center;
+    margin-top: 20px;
+    color: #5a3e2b;
+    font-size: 18px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #8b5d33;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  a:hover {
+    color: #6b4227;
+  }
+</style>
+</head>
+
+<body>
+<div class="container">
+  <div class="header">
+    <h1>Request Status</h1>
+  </div>
+
+  <form id="form1" name="form1" method="post" action="/myapp/View_Request_Status_post/">
+    {% csrf_token %}
+    <div class="search-bar">
+      <input type="text" name="textfield" id="textfield" placeholder="Search by book name..." />
+      <input type="submit" name="button" id="button" value="Search" />
+    </div>
+  </form>
+
+  {% if data %}
+  <table>
+    <thead>
+      <tr>
+        <th>Sl. No</th>
+        <th>Photo</th>
+        <th>Book Name</th>
+        <th>Condition</th>
+        <th>Price</th>
+        <th>Author</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Review</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in data %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td><img src="{{ i.BOOK.photo }}" alt="Book Photo"></td>
+        <td>{{ i.BOOK.name }}</td>
+        <td>{{ i.BOOK.condition }}</td>
+        <td>{{ i.BOOK.prize }}</td>
+        <td>{{ i.BOOK.author_name }}</td>
+        <td>{{ i.BOOK.description }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.status }}</td>
+        <td>
+          {% if i.status == "approved" %}
+          <a href="/myapp/Review/{{ i.BOOK.id }}">Leave a Review</a>
+          {% else %}
+          ---
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="no-data">No requests found. Start requesting your favorite books!</div>
+  {% endif %}
+</div>
+</body>
+</html>

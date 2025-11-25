@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>BOOK SWAP - READ THE WONDER OF THE WORLD THROUGH BOOKS</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="/static/home/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@700&display=swap" rel="stylesheet">  
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="/static/home/lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/static/home/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/static/home/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="/static/home/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+     <!-- Navbar Start -->
+
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm py-3 px-lg-5" style="background-color: #f5f1e8; border-bottom: 3px solid #8b6f47;">
+    <a href="/myapp/adminhome/" class="navbar-brand d-flex align-items-center">
+        <i class="bi bi-book fs-1 text-warning me-2"></i>
+        <h1 class="m-0 text-uppercase" style="color: #5a4632; font-family: 'Georgia', serif;">BOOK SWAP</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item"><a href="/myapp/adminhome/" class="nav-link active" style="color: #5a4632;">HOME</a></li>
+
+
+            <li class="nav-item"><a href="/myapp/view_user/#BC" class="nav-link" style="color: #5a4632;">View user</a></li>
+            <li class="nav-item"><a href="/myapp/All_Book/#BC" class="nav-link" style="color: #5a4632;">View books</a></li>
+            <li class="nav-item"><a href="/myapp/view_complaint/" class="nav-link" style="color: #5a4632;">View complaint</a></li>
+            <li class="nav-item"><a href="/myapp/Admin_Change_Password/" class="nav-link" style="color: #5a4632;">Change password</a></li>
+
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" style="color: #5a4632;">NOTIFICATION&PAYMENT</a>
+                <ul class="dropdown-menu" style="background-color: #f5e6ca; border: 1px solid #8b6f47;">
+                    <li><a href="/myapp/Send_notification/" class="dropdown-item" style="color: #5a4632;">Send_notification</a></li>
+{#                    <li><a href="/myapp/View_notification/" class="dropdown-item" style="color: #5a4632;">View_notification</a></li>#}
+                    <li><a href="/myapp/view_payments/" class="dropdown-item" style="color: #5a4632;">view_payments</a></li>
+{#                    <li><a href="/myapp/Admin_Change_Password/" class="dropdown-item" style="color: #5a4632;">Change password</a></li>#}
+                </ul>
+            </li>
+
+
+            <li class="nav-item">
+                <a href="/myapp/logout/" class="nav-link text-white px-4" style="background-color: #8b6f47; border-radius: 5px; margin-left:30px;">LOGOUT<i class="bi bi-arrow-right ms-2"></i></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+    <!---nav
+
+
+    <!-- Hero Start -->
+
+<style>
+    /* Smooth Color Transition for Heading */
+    .display-1 {
+        font-size: 4.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        background: linear-gradient(45deg, #8B5E3B, #D2B48C, #FFD700, #FAEBD7);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientShift 5s infinite alternate;
+    }
+
+    /* Gradient Animation */
+    @keyframes gradientShift {
+        0% { background-position: left; }
+        100% { background-position: right; }
+    }
+
+    /* Updated Paragraph Styling */
+    .fs-4 {
+        font-size: 1.3rem;
+        color: #FAEBD7;
+        background: rgba(0, 0, 0, 0.4);
+        padding: 15px;
+        border-radius: 8px;
+    }
+</style>
+
+<div class="container-fluid bg-primary py-5 mb-5 hero-header">
+    <div class="container py-5">
+        <div class="row justify-content-start">
+            <div class="col-lg-8 text-center text-lg-start">
+                <h1 class="display-1 mb-lg-4">BOOK SWAP</h1>
+                <h1 class="text-uppercase text-white mb-lg-4">BOOKS ARE KEYS TO ENDLESS WORLDS</h1>
+                <p class="fs-4 text-white mb-lg-4">
+                    "Books are more than just pages; they are doorways to endless possibilities. With each story,
+                    we embark on adventures, uncover wisdom, and connect with minds across time. A book isn't just
+                    a read—it's a journey waiting to begin."
+                </p>
+                <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
+{#                    <a href="" class="btn btn-outline-light border-2 py-md-3 px-md-5 me-5">Read More</a>#}
+                    <button type="button" class="btn-play" data-bs-toggle="modal"
+                        data-src="https://youtu.be/CFIPlO0utZU" data-bs-target="#videoModal">
+                        <span></span>
+                    </button>
+
+                    <h5 class="font-weight-normal text-white m-0 ms-4 d-none d-sm-block"><a href="https://youtu.be/CFIPlO0utZU" target="_blank"> Play Video</a></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Hero End -->
+
+       <!-- Products Start -->
+
+    <div class="container-fluid py-5">
+    <div class="container">
+        <div class="border-start border-5 ps-5 mb-5" style="max-width: 600px; border-color: gray !important;">
+            <h6 class="text-uppercase" style="color: #ffc107;">Featured Books</h6>
+            <h1 class="display-5 text-uppercase mb-0">Discover Your Next Read</h1>
+        </div>
+        <div class="owl-carousel product-carousel">
+            <div class="pb-5">
+                <div class="product-item position-relative bg-light d-flex flex-column text-center">
+                    <img class="img-fluid mb-4" src="/static/home/img/product-1.png" alt="">
+                    <h6 class="text-uppercase">Classic Literature</h6>
+                    <h5 class="text-primary mb-0">15 Book Coins</h5>
+                    <div class="btn-action d-flex justify-content-center">
+{#                        <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-bookmark"></i></a>#}
+{#                        <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-eye"></i></a>#}
+                    </div>
+                </div>
+            </div>
+            <div class="pb-5">
+                <div class="product-item position-relative bg-light d-flex flex-column text-center">
+                    <img class="img-fluid mb-4" src="/static/home/img/product-2.png" alt="">
+                    <h6 class="text-uppercase">Mystery & Thrillers</h6>
+                    <h5 class="text-primary mb-0">18 Book Coins</h5>
+                    <div class="btn-action d-flex justify-content-center">
+{#                        <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-bookmark"></i></a>#}
+{#                        <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-eye"></i></a>#}
+                    </div>
+                </div>
+            </div>
+            <div class="pb-5">
+                <div class="product-item position-relative bg-light d-flex flex-column text-center">
+                    <img class="img-fluid mb-4" src="/static/home/img/product-3.png" alt="">
+                    <h6 class="text-uppercase">Science Fiction</h6>
+                    <h5 class="text-primary mb-0">20 Book Coins</h5>
+                    <div class="btn-action d-flex justify-content-center">
+{#                        <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-bookmark"></i></a>#}
+{#                        <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-eye"></i></a>#}
+                    </div>
+                </div>
+            </div>
+            <div class="pb-5">
+                <div class="product-item position-relative bg-light d-flex flex-column text-center">
+                    <img class="img-fluid mb-4" src="/static/home/img/product-4.png" alt="">
+                    <h6 class="text-uppercase">Fantasy Worlds</h6>
+                    <h5 class="text-primary mb-0">22 Book Coins</h5>
+                    <div class="btn-action d-flex justify-content-center">
+{#                        <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-bookmark"></i></a>#}
+{#                        <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-eye"></i></a>#}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Products End -->
+
+    <!-- Video Modal Start -->
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- 16:9 aspect ratio -->
+                    <div class="ratio ratio-16x9">
+                        <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
+                            allow="autoplay"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Video Modal End -->
+
+
+
+
+    <!-- Pricing Plan Start -->
+    <div class="container-fluid py-5" id="BC">
+        <div class="container">
+            <div class="row" id="abcd">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                    {% block body %}
+
+                    {% endblock %}
+                </div>
+                <div class="col-lg-1"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Pricing Plan End -->
+
+
+
+    
+
+    <!-- Services Start -->
+<div class="container-fluid py-5" style="background-color: #f7f2e7; font-family: 'Georgia', serif; color: #5a3e2b;">
+    <div class="container">
+        <div class="border-start border-5 ps-4 mb-5" style="border-color: #ffc107; max-width: 600px;">
+            <h6 style="color: #ffc107; text-transform: uppercase; letter-spacing: 2px;">Curated Services</h6>
+            <h1 style="font-size: 36px; font-weight: bold; color: #5a3e2b; text-transform: uppercase;">Book Lover's Services</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="service-item d-flex p-4" style="background-color: #fffdf6; border: 1px solid #d6b28d; border-radius: 8px;">
+                    <i class="bi bi-arrow-left-right display-1 text-warning me-4"></i>
+                    <div>
+                        <h5 style="color: #5a3e2b; font-size: 20px;">Book Exchange</h5>
+                        <p style="color: #7a5539;">Trade books using Book Coins instead of money.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="service-item d-flex p-4" style="background-color: #fffdf6; border: 1px solid #d6b28d; border-radius: 8px;">
+                    <i class="bi bi-journal-plus display-1 text-warning me-4"></i>
+                    <div>
+                        <h5 style="color: #5a3e2b; font-size: 20px;">List Your Books</h5>
+                        <p style="color: #7a5539;">Share your pre-loved books with fellow readers and earn Book Coins.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="service-item d-flex p-4" style="background-color: #fffdf6; border: 1px solid #d6b28d; border-radius: 8px;">
+                    <i class="bi bi-book display-1 text-warning me-4"></i>
+                    <div>
+                        <h5 style="color: #5a3e2b; font-size: 20px;">Browse Available Books</h5>
+                        <p style="color: #7a5539;">Discover a wide range of books listed by other users and exchange using Book Coins.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="service-item d-flex p-4" style="background-color: #fffdf6; border: 1px solid #d6b28d; border-radius: 8px;">
+                    <i class="bi bi-chat-dots display-1 text-warning me-4"></i>
+                    <div>
+                        <h5 style="color: #5a3e2b; font-size: 20px;">Community Chat</h5>
+                        <p style="color: #7a5539;">Join discussions, organize meet-ups, and interact with fellow book lovers.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="service-item d-flex p-4" style="background-color: #fffdf6; border: 1px solid #d6b28d; border-radius: 8px;">
+                    <i class="bi bi-person-plus display-1 text-warning me-4"></i>
+                    <div>
+                        <h5 style="color: #5a3e2b; font-size: 20px;">Refer & Earn</h5>
+                        <p style="color: #7a5539;">Earn points by inviting your book-loving friends to Bookstrap.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="service-item d-flex p-4" style="background-color: #fffdf6; border: 1px solid #d6b28d; border-radius: 8px;">
+                    <i class="bi bi-wallet2 display-1 text-warning me-4"></i>
+                    <div>
+                        <h5 style="color: #5a3e2b; font-size: 20px;">Earn & Spend Book Coins</h5>
+                        <p style="color: #7a5539;">Accumulate Book Coins through exchanges and spend them on new books.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{#    <!-- Services End -->#}
+
+    <!-- Offer start -->
+
+    <div class="container-fluid py-5" style="background-color: #5a3e2b; font-family: 'Georgia', serif; color: #f7f2e7;">
+    <div class="container py-5">
+        <div class="row gx-5 justify-content-start">
+            <div class="col-lg-7">
+                <div class="border-start border-5 ps-4 mb-4" style="border-color: #ffc107;">
+                    <h6 style="color: #ffc107; text-transform: uppercase; letter-spacing: 2px;">Exclusive Book Exchange Offer</h6>
+                    <h1 style="font-size: 36px; font-weight: bold; color: #f7f2e7; text-transform: uppercase;">Get 10 Bonus Book Coins On Your First Trade!</h1>
+                </div>
+                <p style="color: #f1e3d3;">Start your book exchange journey today! List your first book and receive 10 bonus Book Coins instantly. Discover, trade, and enjoy your next great read.</p>
+                <a href="#" class="btn py-md-3 px-md-5 me-3" style="background-color: #ffc107; color: #5a3e2b; font-weight: bold; text-transform: uppercase;">Start Trading</a>
+{#                <a href="#" class="btn py-md-3 px-md-5" style="border: 2px solid #ffc107; color: #ffc107; font-weight: bold; text-transform: uppercase;">Learn More</a>#}
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Offer End -->
+
+<!--pricing plan-------------------------------------------------------->
+
+
+    <div class="container-fluid py-5" style="background-color: #f7f2e7; font-family: 'Georgia', serif; color: #5a3e2b;">
+    <div class="container">
+        <div class="border-start border-5 ps-4 mb-5" style="border-color: #ffc107; max-width: 600px;">
+            <h6 style="color: #ffc107; text-transform: uppercase; letter-spacing: 2px;">Book Lover’s Journey</h6>
+            <h1 style="font-size: 36px; font-weight: bold; color: #5a3e2b; text-transform: uppercase;">
+                Your Reading & Trading Adventure
+            </h1>
+        </div>
+        <div class="row g-5">
+            <!-- Casual Reader -->
+            <div class="col-lg-4">
+                <div class="bg-white text-center pt-5 mt-lg-5 plan-box" style="border: 1px solid #d6b28d; border-radius: 8px;">
+                    <h2 class="text-uppercase" style="color: #5a3e2b;">Casual Reader</h2>
+                    <h6 class="text-body mb-4">Just getting started</h6>
+                    <div class="text-center p-4 mb-2" style="background-color: #ffc107;">
+                        <h1 class="display-4 text-white mb-0">10+ <small style="font-size: 16px;">Book Coins</small></h1>
+                    </div>
+                    <div class="text-center p-4">
+                        <p>📖 Listed 1-5 Books</p>
+                        <p>🔄 Exchanged 1-2 Books</p>
+                        <p>✨ Exploring the community</p>
+                        <a href="#" class="btn py-2 px-4 my-3" style="background-color: #ffc107; color: #5a3e2b; font-weight: bold; text-transform: uppercase;">Keep Reading!</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Avid Reader -->
+            <div class="col-lg-4">
+                <div class="bg-white text-center pt-5 plan-box" style="border: 1px solid #d6b28d; border-radius: 8px;">
+                    <h2 class="text-uppercase" style="color: #5a3e2b;">Avid Reader</h2>
+                    <h6 class="text-body mb-4">You love trading books</h6>
+                    <div class="text-center p-4 mb-2" style="background-color: #5a3e2b;">
+                        <h1 class="display-4 text-white mb-0">25+ <small style="font-size: 16px;">Book Coins</small></h1>
+                    </div>
+                    <div class="text-center p-4">
+                        <p>📚 Listed 6-15 Books</p>
+                        <p>🔄 Exchanged 3-5 Books</p>
+                        <p>🤝 Actively chatting with readers</p>
+                        <a href="#" class="btn py-2 px-4 my-3" style="background-color: #5a3e2b; color: #ffc107; font-weight: bold; text-transform: uppercase;">Join a Discussion</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Book Hoarder -->
+            <div class="col-lg-4">
+                <div class="bg-white text-center pt-5 mt-lg-5 plan-box" style="border: 1px solid #d6b28d; border-radius: 8px;">
+                    <h2 class="text-uppercase" style="color: #5a3e2b;">Book Hoarder</h2>
+                    <h6 class="text-body mb-4">Books are your passion</h6>
+                    <div class="text-center p-4 mb-2" style="background-color: #ffc107;">
+                        <h1 class="display-4 text-white mb-0">50+ <small style="font-size: 16px;">Book Coins</small></h1>
+                    </div>
+                    <div class="text-center p-4">
+                        <p>📖 Listed 15+ Books</p>
+                        <p>🔄 Exchanged 6+ Books</p>
+                        <p>👑 A well-known trader</p>
+                        <a href="#" class="btn py-2 px-4 my-3" style="background-color: #ffc107; color: #5a3e2b; font-weight: bold; text-transform: uppercase;">Share Your Collection</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+    <style>
+    /* Smooth fade-in animation */
+    .plan-box {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    /* Animation trigger */
+    .visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Hover effect for interactive motion */
+    .plan-box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(90, 62, 43, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+</style>
+
+<script>
+    // Add fade-in effect when scrolling
+    document.addEventListener("DOMContentLoaded", function () {
+        let plans = document.querySelectorAll(".plan-box");
+        let observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            },
+            { threshold: 0.3 }
+        );
+        plans.forEach((plan) => observer.observe(plan));
+    });
+</script>
+
+{#    <!-- Pricing Plan End -->#}
+
+{#    <!--complaint-->#}
+{#<div class="container-fluid py-5">#}
+{#        <div class="container">#}
+{#            <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">#}
+{#                <h6 class="text-primary text-uppercase">COMPLAINT</h6>#}
+{#                <h1 class="display-5 text-uppercase mb-0">view complaint</h1>#}
+{#            </div>#}
+{##}
+{#        <table class="table table-bordered mb-4">#}
+{#          <tr>#}
+{#            <td>From Date</td>#}
+{#            <td><input type="date" name="textfield" id="textfield" class="form-control" /></td>#}
+{#            <td>To Date</td>#}
+{#            <td><input type="date" name="textfield2" id="textfield2" class="form-control" /></td>#}
+{#            <td><input type="submit" name="button" id="button" value="Search" class="btn btn-primary" /></td>#}
+{#          </tr>#}
+{#        </table>#}
+{##}
+{#<table class="table table-bordered">#}
+{#  <tr>#}
+{#    <th width="50">Sl.no</th>#}
+{#    <th width="62">User name</th>#}
+{#    <th width="76">Date</th>#}
+{#    <th width="96">Complaint</th>#}
+{#    <th width="93">Reply</th>#}
+{#    <th width="99">Status</th>#}
+{#  </tr>#}
+{#  {% for i in data2 %}#}
+{#  <tr>#}
+{#    <td>{{ forloop.counter }}</td>#}
+{#    <td>{{ i.USER.name }}</td>#}
+{#    <td>{{ i.date }}</td>#}
+{#    <td>{{ i.complaint }}</td>#}
+{#    <td>#}
+{#      {% if i.reply == 'pending' %}#}
+{#      <a href="/myapp/reply_complaints/{{ i.id }}" class="btn btn-warning">Reply</a>#}
+{#      {% else %}#}
+{#      {{ i.reply }}#}
+{#      {% endif %}#}
+{#    </td>#}
+{#    <td>{{ i.status }}</td>#}
+{#  </tr>#}
+{#  {% endfor %}#}
+{#</table>#}
+{#        </div>#}
+{#     </div>#}
+    <!--complaint-->
+
+
+
+
+
+    <!-- Team Start -->
+{#    <div class="container-fluid py-5">#}
+{#        <div class="container">#}
+{#            <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">#}
+{#                <h6 class="text-primary text-uppercase">Team Members</h6>#}
+{#                <h1 class="display-5 text-uppercase mb-0">Qualified Pets Care Professionals</h1>#}
+{#            </div>#}
+{#            <div class="owl-carousel team-carousel position-relative" style="padding-right: 25px;">#}
+{#                <div class="team-item">#}
+{#                    <div class="position-relative overflow-hidden">#}
+{#                        <img class="img-fluid w-100" src="/static/home/img/team-1.jpg" alt="">#}
+{#                        <div class="team-overlay">#}
+{#                            <div class="d-flex align-items-center justify-content-start">#}
+{#                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-twitter"></i></a>#}
+{#                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-facebook"></i></a>#}
+{#                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-linkedin"></i></a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="bg-light text-center p-4">#}
+{#                        <h5 class="text-uppercase">Full Name</h5>#}
+{#                        <p class="m-0">Designation</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="team-item">#}
+{#                    <div class="position-relative overflow-hidden">#}
+{#                        <img class="img-fluid w-100" src="/static/home/img/team-2.jpg" alt="">#}
+{#                        <div class="team-overlay">#}
+{#                            <div class="d-flex align-items-center justify-content-start">#}
+{#                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-twitter"></i></a>#}
+{#                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-facebook"></i></a>#}
+{#                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-linkedin"></i></a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="bg-light text-center p-4">#}
+{#                        <h5 class="text-uppercase">Full Name</h5>#}
+{#                        <p class="m-0">Designation</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="team-item">#}
+{#                    <div class="position-relative overflow-hidden">#}
+{#                        <img class="img-fluid w-100" src="/static/home/img/team-3.jpg" alt="">#}
+{#                        <div class="team-overlay">#}
+{#                            <div class="d-flex align-items-center justify-content-start">#}
+{#                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-twitter"></i></a>#}
+{#                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-facebook"></i></a>#}
+{#                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-linkedin"></i></a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="bg-light text-center p-4">#}
+{#                        <h5 class="text-uppercase">Full Name</h5>#}
+{#                        <p class="m-0">Designation</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="team-item">#}
+{#                    <div class="position-relative overflow-hidden">#}
+{#                        <img class="img-fluid w-100" src="/static/home/img/team-4.jpg" alt="">#}
+{#                        <div class="team-overlay">#}
+{#                            <div class="d-flex align-items-center justify-content-start">#}
+{#                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-twitter"></i></a>#}
+{#                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-facebook"></i></a>#}
+{#                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-linkedin"></i></a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="bg-light text-center p-4">#}
+{#                        <h5 class="text-uppercase">Full Name</h5>#}
+{#                        <p class="m-0">Designation</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="team-item">#}
+{#                    <div class="position-relative overflow-hidden">#}
+{#                        <img class="img-fluid w-100" src="/static/home/img/team-5.jpg" alt="">#}
+{#                        <div class="team-overlay">#}
+{#                            <div class="d-flex align-items-center justify-content-start">#}
+{#                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-twitter"></i></a>#}
+{#                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-facebook"></i></a>#}
+{#                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-linkedin"></i></a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div class="bg-light text-center p-4">#}
+{#                        <h5 class="text-uppercase">Full Name</h5>#}
+{#                        <p class="m-0">Designation</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+    <!-- Team End -->
+    <!--user view-->
+{#   <div class="container-fluid py-5">#}
+{#      <div class="container">#}
+{#        <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">#}
+{#          <h6 class="text-primary text-uppercase">User</h6>#}
+{#          <h1 class="display-5 text-uppercase mb-0">View User</h1>#}
+{#        </div>#}
+{#        {% csrf_token %}#}
+{#        <div class="search-container">#}
+{#          <input type="text" name="textfield" id="textfield" placeholder="Search..." />#}
+{#          <input type="submit" name="button" id="button" value="Search" />#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#  </form>#}
+{##}
+{#  <div class="container">#}
+{#    <div class="card-container">#}
+{#      {% for i in data %}#}
+{#        <div class="card">#}
+{#          <img src="{{ i.photo }}" alt="{{ i.name }}" />#}
+{#          <h3>{{ i.name }}</h3>#}
+{#          <p><strong>Date of Birth:</strong> {{ i.date_of_birth }}</p>#}
+{#          <p><strong>Address:</strong> {{ i.place }}, {{ i.post }}, {{ i.pin }}, {{ i.district }}, {{ i.state }}</p>#}
+{#          <p><strong>Contact:</strong> {{ i.phone_number }}<br>{{ i.email }}</p>#}
+{#          <a href="/myapp/admin_view_Book/{{ i.id }}" class="btn">View Book</a>#}
+{#        </div>#}
+{#      {% endfor %}#}
+{#    </div>#}
+{#  </div>#}
+    <!--view user-->
+
+{#    <!-- Testimonial Start -->#}
+<div class="container-fluid py-5" style="background-color: #f7f2e7; font-family: 'Georgia', serif; color: #5a3e2b;">
+    <div class="container">
+        <div class="border-start border-5 ps-4 mb-5" style="border-color: #d6b28d; max-width: 600px;">
+            <h6 style="color: #d6b28d; text-transform: uppercase; letter-spacing: 2px;">What Readers Say</h6>
+            <h1 style="font-size: 36px; font-weight: bold; color: #5a3e2b; text-transform: uppercase;">Book Lovers' Testimonials</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="text-center p-4" style="background-color: #fffdf6; border: 1px solid #d6b28d; border-radius: 8px;">
+                                <p class="mb-4" style="color: #7a5539; font-style: italic;">“Bookstrap made book exchanging effortless! I finally found a home for my old classics and got amazing new reads in return.”</p>
+                                <h5 style="color: #5a3e2b; font-weight: bold;">- Emily R., Avid Reader</h5>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="text-center p-4" style="background-color: #fffdf6; border: 1px solid #d6b28d; border-radius: 8px;">
+                                <p class="mb-4" style="color: #7a5539; font-style: italic;">“I love how I can earn and spend Book Coins without spending real money. The community is fantastic!”</p>
+                                <h5 style="color: #5a3e2b; font-weight: bold;">- Jason M., Literature Enthusiast</h5>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="text-center p-4" style="background-color: #fffdf6; border: 1px solid #d6b28d; border-radius: 8px;">
+                                <p class="mb-4" style="color: #7a5539; font-style: italic;">“A great place to discover hidden literary gems and connect with fellow book lovers.”</p>
+                                <h5 style="color: #5a3e2b; font-weight: bold;">- Sophia L., Book Collector</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: #5a3e2b; border-radius: 50%; padding: 10px;"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: #5a3e2b; border-radius: 50%; padding: 10px;"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Testimonial End -->
+
+  <!-- About Start -->
+
+<div class="container-fluid py-5" style="background-color: #f7f3e9;">
+    <div class="container">
+        <div class="row gx-5">
+            <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
+                <div class="position-relative h-100">
+                    <img class="position-absolute w-100 h-100 rounded" src="/static/home/img/bookstore.jpg" style="object-fit: cover; border-radius: 12px;">
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="border-start border-5" style="border-color: #8b5d33; padding-left: 2rem; margin-bottom: 2rem;">
+                    <h3 class="text-uppercase" style="color: #8b5d33; font-family: 'Georgia', serif;">About Us</h3>
+                    <h1 class="display-5 text-uppercase mb-0" style="font-family: 'Georgia', serif; color: #5a3e2b;">Bringing Stories to Life</h1>
+                </div>
+                <h4 class="text-body mb-4" style="font-family: 'Georgia', serif; color: #5a3e2b;">Where every book tells a tale, and every visit sparks your imagination. Dive into a world of literature.</h4>
+                <div class="p-4" style="background-color: #fbf7ef; border-radius: 12px;">
+                    <ul class="nav nav-pills justify-content-between mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item w-50" role="presentation">
+                                <button class="nav-link text-uppercase w-100 active" id="pills-1-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-1" type="button" role="tab" aria-controls="pills-1"
+                                    aria-selected="true">Our Mission</button>
+                            </li>
+                            <li class="nav-item w-50" role="presentation">
+                                <button class="nav-link text-uppercase w-100" id="pills-2-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-2" type="button" role="tab" aria-controls="pills-2"
+                                    aria-selected="false">Our Vission</button>
+                            </li>
+                        </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">
+                            <p class="mb-0" style="font-family: 'Georgia', serif; color: #5a3e2b;">Our mission is simple: to provide a haven for book lovers of all genres. We strive to curate a selection of books that spark curiosity, evoke emotions, and foster a deep love for reading. Our shelves are filled with timeless classics, modern novels, and hidden gems waiting to be discovered.</p>
+                        </div>
+                        <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
+                            <p class="mb-0" style="font-family: 'Georgia', serif; color: #5a3e2b;">We envision a world where everyone has access to books that ignite their passion for knowledge, adventure, and creativity. Our goal is to be a place where readers of all ages can find their next great adventure, whether through fiction, non-fiction, or poetry.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{#    <!-- About End -->#}
+
+    <!-- Blog Start -->
+
+    <!-- Blog End -->
+<!--sent noti-->
+{#    <div class="container-fluid py-5">#}
+{#      <div class="container">#}
+{#        <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">#}
+{#          <h6 class="text-primary text-uppercase">Notification</h6>#}
+{#          <h1 class="display-5 text-uppercase mb-0">Send Notification</h1>#}
+{#        </div>#}
+{#        <table class="table table-bordered">#}
+{#          <tr>#}
+{#            <td><label for="textarea">Notification</label></td>#}
+{#            <td><textarea class="form-control" name="textarea" id="textarea" rows="4"></textarea></td>#}
+{#          </tr>#}
+{#          <tr>#}
+{#            <td colspan="2" class="text-right">#}
+{#              <input type="submit" name="button" id="button" class="btn-submit" value="Submit" />#}
+{#            </td>#}
+{#          </tr>#}
+{#        </table>#}
+{#      </div>#}
+{#    </div>#}
+    <!--sent noti-->
+
+{#    <!--view noti-->#}
+{#<div class="container-fluid py-5">#}
+{#      <div class="container">#}
+{#        <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">#}
+{#          <h6 class="text-primary text-uppercase">Notifications</h6>#}
+{#          <h1 class="display-5 text-uppercase mb-0">View Notifications</h1>#}
+{#        </div>#}
+{#        {% csrf_token %}#}
+{#        <table class="table table-bordered mb-4">#}
+{#          <tr>#}
+{#            <td>From Date</td>#}
+{#            <td><input type="date" name="textfield" id="textfield" class="form-control" /></td>#}
+{#            <td>To Date</td>#}
+{#            <td><input type="date" name="textfield2" id="textfield2" class="form-control" /></td>#}
+{#            <td><input type="submit" name="button" id="button" value="Search" class="btn btn-primary" /></td>#}
+{#          </tr>#}
+{#        </table>#}
+{#        <table class="table table-bordered table-hover">#}
+{#          <thead class="thead-light">#}
+{#            <tr>#}
+{#              <th scope="col">Sl.no</th>#}
+{#              <th scope="col">Date</th>#}
+{#              <th scope="col">Notification</th>#}
+{#              <th scope="col">Delete</th>#}
+{#            </tr>#}
+{#          </thead>#}
+{#          <tbody>#}
+{#            {% for i in data1 %}#}
+{#            <tr>#}
+{#              <td>{{ forloop.counter }}</td>#}
+{#              <td>{{ i.date }}</td>#}
+{#              <td>{{ i.notification }}</td>#}
+{#              <td><a href="/myapp/delete_notification/{{ i.id }}" class="btn-delete">Delete</a></td>#}
+{#            </tr>#}
+{#            {% endfor %}#}
+{#          </tbody>#}
+{#        </table>#}
+{#      </div>#}
+{#    </div>#}
+    <!--view noti-->
+
+    <!-- Footer Start -->
+
+    <div class="container-fluid bg-light mt-5 py-5" style="background-color: #f7f2e7; font-family: 'Georgia', serif;">
+    <div class="container pt-5">
+        <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+                <h5 class="border-start border-5 ps-3 mb-4" style="border-color: #c9a66b; color: #5a3e2b;">Connect With Us</h5>
+                <p class="mb-4" style="color: #7a5539;">Have questions or book suggestions? Reach out to us!</p>
+                <p class="mb-2"><i class="bi bi-geo-alt" style="color: #c9832a;"></i> 221B Baker Street, London</p>
+                <p class="mb-2"><i class="bi bi-envelope-open" style="color: #c9832a;"></i> contact@bookstrap.com</p>
+                <p class="mb-0"><i class="bi bi-telephone" style="color: #c9832a;"></i> +44 123 456 789</p>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="border-start border-5 ps-3 mb-4" style="border-color: #c9a66b; color: #5a3e2b;">Quick Links</h5>
+                <div class="d-flex flex-column">
+                    <a class="text-muted mb-2" href="#"><i class="bi bi-arrow-right me-2" style="color: #c9832a;"></i>Home</a>
+                    <a class="text-muted mb-2" href="#"><i class="bi bi-arrow-right me-2" style="color: #c9832a;"></i>About Bookstrap</a>
+                    <a class="text-muted mb-2" href="#"><i class="bi bi-arrow-right me-2" style="color: #c9832a;"></i>Book Listings</a>
+                    <a class="text-muted mb-2" href="#"><i class="bi bi-arrow-right me-2" style="color: #c9832a;"></i>Exchange Process</a>
+                    <a class="text-muted mb-2" href="#"><i class="bi bi-arrow-right me-2" style="color: #c9832a;"></i>Blog</a>
+                    <a class="text-muted" href="#"><i class="bi bi-arrow-right me-2" style="color: #c9832a;"></i>Contact Us</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="border-start border-5 ps-3 mb-4" style="border-color: #c9a66b; color: #5a3e2b;">Bookish Resources</h5>
+                <div class="d-flex flex-column">
+                    <a class="text-muted mb-2" href="#"><i class="bi bi-arrow-right me-2" style="color: #c9832a;"></i>Book Coins Guide</a>
+                    <a class="text-muted mb-2" href="#"><i class="bi bi-arrow-right me-2" style="color: #c9832a;"></i>Community Rules</a>
+                    <a class="text-muted mb-2" href="#"><i class="bi bi-arrow-right me-2" style="color: #c9832a;"></i>Tips for Swaps</a>
+                    <a class="text-muted mb-2" href="#"><i class="bi bi-arrow-right me-2" style="color: #c9832a;"></i>Classic Book Picks</a>
+                    <a class="text-muted mb-2" href="#"><i class="bi bi-arrow-right me-2" style="color: #c9832a;"></i>FAQs</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="border-start border-5 ps-3 mb-4" style="border-color: #c9a66b; color: #5a3e2b;">Newsletter</h5>
+                <form action="">
+                    <div class="input-group">
+                        <input type="text" class="form-control p-3" placeholder="Your Email" style="border-radius: 5px 0 0 5px; border-color: #c9a66b;">
+                        <button class="btn" style="background-color: #c9832a; color: #fff; border-radius: 0 5px 5px 0;">Sign Up</button>
+                    </div>
+                </form>
+                <h6 class="mt-4 mb-3" style="color: #5a3e2b;">Follow Us</h6>
+                <div class="d-flex">
+                    <a class="btn btn-outline-dark btn-square me-2" href="#"><i class="bi bi-twitter"></i></a>
+                    <a class="btn btn-outline-dark btn-square me-2" href="#"><i class="bi bi-facebook"></i></a>
+                    <a class="btn btn-outline-dark btn-square me-2" href="#"><i class="bi bi-linkedin"></i></a>
+                    <a class="btn btn-outline-dark btn-square" href="#"><i class="bi bi-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-12 text-center text-muted mt-4">
+                <a class="text-muted" href="">Terms & Conditions</a>
+                <span class="mx-1">|</span>
+                <a class="text-muted" href="">Privacy Policy</a>
+                <span class="mx-1">|</span>
+                <a class="text-muted" href="">Support</a>
+                <span class="mx-1">|</span>
+                <a class="text-muted" href="">Help</a>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="container-fluid bg-dark text-white-50 py-4">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-md-0">&copy; <a class="text-white" href="#">Your Site Name</a>. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Designed by <a class="text-white" href="https://htmlcodex.com">HTML Codex</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/home/lib/easing/easing.min.js"></script>
+    <script src="/static/home/lib/waypoints/waypoints.min.js"></script>
+    <script src="/static/home/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/static/home/js/main.js"></script>
+</body>
+
+</html>

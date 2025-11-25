@@ -1,0 +1,212 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="/myapp/User_Complaint_post/">#}
+{#    {% csrf_token %}#}
+{#  <table width="269" border="1">#}
+{#      <h2>Complaint</h2>#}
+{#    <tr>#}
+{#      <td width="92">Complaint</td>#}
+{#      <td width="161"><label for="textfield"></label>#}
+{#      <input type="text" name="textfield" id="textfield" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td colspan="2"><input type="submit" name="button" id="button" value="Submit" /></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+{##}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Submit a Complaint</title>
+<style>
+  body {
+    font-family: 'Georgia', serif;
+    background-color: #f7f3e9;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: #fffdf6;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  h2 {
+    color: #5a3e2b;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  form {
+    margin-top: 10px;
+  }
+
+  label {
+    display: block;
+    font-size: 16px;
+    color: #5a3e2b;
+    margin-bottom: 8px;
+    text-align: left;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 20px;
+  }
+
+  input[type="submit"] {
+    background-color: #8b5d33;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #6b4227;
+  }
+
+  .success-message {
+    color: green;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+</style>
+</head>
+
+<body>
+<div class="container">
+  <h2>Submit a Complaint</h2>
+  <form id="form1" name="form1" method="post" action="/myapp/User_Complaint_post/">
+    {% csrf_token %}
+    <label for="textfield">Your Complaint:</label>
+    <input type="text" name="textfield" id="textfield" placeholder="Enter your complaint here..." required />
+    <input type="submit" name="button" id="button" value="Submit" />
+  </form>
+</div>
+</body>
+</html>
+
+{##}
+{#<!DOCTYPE html>#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Submit a Complaint</title>#}
+{#<style>#}
+{#  body {#}
+{#    font-family: 'Arial', sans-serif;#}
+{#    background-color: #ffffff; /* White background */#}
+{#    margin: 0;#}
+{#    padding: 20px;#}
+{#  }#}
+{##}
+{#  .container {#}
+{#    width: 90%;#}
+{#    max-width: 500px;#}
+{#    margin: 50px auto;#}
+{#    background-color: #f8f8f8; /* Light gray for the card */#}
+{#    padding: 20px;#}
+{#    border-radius: 10px;#}
+{#    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);#}
+{#    text-align: center;#}
+{#  }#}
+{##}
+{#  h2 {#}
+{#    color: #4caf50; /* Dark text for headings */#}
+{#    font-size: 24px;#}
+{#    margin-bottom: 20px;#}
+{#    font-weight: bold;#}
+{#  }#}
+{##}
+{#  form {#}
+{#    margin-top: 10px;#}
+{#  }#}
+{##}
+{#  label {#}
+{#    display: block;#}
+{#    font-size: 16px;#}
+{#    color: #333; /* Dark text for labels */#}
+{#    margin-bottom: 8px;#}
+{#    text-align: left;#}
+{#  }#}
+{##}
+{#  input[type="text"] {#}
+{#    width: 100%;#}
+{#    padding: 10px;#}
+{#    font-size: 14px;#}
+{#    border: 1px solid #ddd;#}
+{#    border-radius: 6px;#}
+{#    margin-bottom: 20px;#}
+{#  }#}
+{##}
+{#  input[type="submit"] {#}
+{#    background-color: #4caf50; /* Green button */#}
+{#    color: #fff;#}
+{#    border: none;#}
+{#    border-radius: 6px;#}
+{#    padding: 10px 20px;#}
+{#    font-size: 16px;#}
+{#    cursor: pointer;#}
+{#    transition: background-color 0.3s ease;#}
+{#  }#}
+{##}
+{#  input[type="submit"]:hover {#}
+{#    background-color: #388e3c; /* Darker green on hover */#}
+{#  }#}
+{##}
+{#  .success-message {#}
+{#    color: #4caf50;#}
+{#    font-size: 16px;#}
+{#    margin-top: 20px;#}
+{#  }#}
+{##}
+{#  .error-message {#}
+{#    color: red;#}
+{#    font-size: 16px;#}
+{#    margin-top: 20px;#}
+{#  }#}
+{#</style>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<div class="container">#}
+{#  <h2>Submit a Complaint</h2>#}
+{#  <form id="form1" name="form1" method="post" action="/myapp/User_Complaint_post/">#}
+{#    {% csrf_token %}#}
+{#    <label for="textfield">Your Complaint:</label>#}
+{#    <input type="text" name="textfield" id="textfield" placeholder="Enter your complaint here..." required />#}
+{#    <input type="submit" name="button" id="button" value="Submit" />#}
+{#  </form>#}
+{#</div>#}
+{#</body>#}
+{#</html>#}

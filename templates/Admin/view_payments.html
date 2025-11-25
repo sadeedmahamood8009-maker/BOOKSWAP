@@ -1,0 +1,169 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#{% extends "Admin/homeindex.html" %}#}
+{#{% block body %}#}
+{##}
+{#<body><form action="/myapp/view_payments/" method="post"><table width="" border="2">#}
+{#    {% csrf_token %}#}
+{#  <tr>#}
+{#    <td>From Date</td>#}
+{#    <td><label for="textfield"></label>#}
+{#      <input type="date" name="textfield" id="textfield" /></td>#}
+{#    <td>To Date</td>#}
+{#    <td><label for="textfield2"></label>#}
+{#      <input type="date" name="textfield2" id="textfield2" /></td>#}
+{#    <td><input type="submit" name="button" id="button" value="Search" /></td>#}
+{#  </tr>#}
+{#</table>#}
+{#<BR>#}
+{#  <table class="table table-bordered">#}
+{#  <table border="2">#}
+{#    <tr>#}
+{#      <th width="57" scope="col">Sl.no</th>#}
+{#      <th width="57" scope="col">User</th>#}
+{#      <th width="99" scope="col">Date</th>#}
+{#      <th width="99" scope="col">Payment</th>#}
+{#      <th width="168" scope="col">status</th>#}
+{#    </tr>#}
+{#      {% for i in data %}#}
+{#    <tr>#}
+{#      <td>{{ forloop.counter }}</td>#}
+{#      <td>{{ i.user }}</td>#}
+{#      <td>{{ i.date }}</td>#}
+{#      <td>{{ i.payment }}</td>#}
+{#      <td>{{ i.status }}</td>#}
+{#    </tr>#}
+{#      {% endfor %}#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#{% endblock %}#}
+{#</html>#}
+{##}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Payments</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f7f2e7;
+            color: #4f4b44;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            color: #8b5d33;
+            margin-bottom: 20px;
+        }
+
+        .filter-form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .filter-form input[type="date"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #c8a97e;
+            border-radius: 4px;
+            background-color: #f2e9d8;
+            color: #4f4b44;
+            margin: 5px;
+        }
+
+        .filter-form input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #8b5d33;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .filter-form input[type="submit"]:hover {
+            background-color: #6b4227;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #8b5d33;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f7f2e7;
+        }
+
+        tr:hover {
+            background-color: #e0d5c1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>View Payments</h1>
+        <form action="/myapp/view_payments/" method="post" class="filter-form">
+            {% csrf_token %}
+            <label>From Date:</label>
+            <input type="date" name="from_date">
+            <label>To Date:</label>
+            <input type="date" name="to_date">
+            <input type="submit" value="Search">
+        </form>
+
+        <table>
+            <tr>
+                <th>Sl. No</th>
+                <th>User</th>
+                <th>Date</th>
+                <th>Payment</th>
+                <th>Status</th>
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ i.USER.name }}</td>
+                <td>{{ i.date }}</td>
+                <td>{{ i.payment }}</td>
+                <td>{{ i.status }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

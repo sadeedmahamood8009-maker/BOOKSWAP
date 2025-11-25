@@ -1,0 +1,339 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="/myapp/View_Review_post/">#}
+{#    {% csrf_token %}#}
+{#  <table width="586" height="38" border="1">#}
+{#    <tr>#}
+{#      <td width="87">From Date</td>#}
+{#      <td width="172"><label for="textfield"></label>#}
+{#      <input type="date" name="textfield" id="textfield" /></td>#}
+{#      <td width="64">To Date</td>#}
+{#      <td width="170"><label for="textfield2"></label>#}
+{#      <input type="date" name="textfield2" id="textfield2" /></td>#}
+{#      <td width="59"><input type="submit" name="button" id="button" value="Search" /></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#  <table width="584" border="1">#}
+{#    <tr>#}
+{#      <th width="168" scope="col">Sl.no</th>#}
+{#      <th width="171" scope="col">User Name</th>#}
+{#      <th width="76" scope="col">Rating</th>#}
+{#      <th width="73" scope="col">Review</th>#}
+{#      <th width="62" scope="col">Date</th>#}
+{#    </tr>#}
+{#      {% for i in data %}#}
+{#    <tr>#}
+{#      <td height="64">{{ forloop.counter }}</td>#}
+{#      <td>{{ i.USER.name }}</td>#}
+{#      <td>{{ i.rating }}</td>#}
+{#      <td>{{ i.review }}</td>#}
+{#      <td>{{ i.date }}</td>#}
+{#    </tr>#}
+{#      {% endfor %}#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+
+{##}
+{#<!DOCTYPE html>#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>View Reviews</title>#}
+{#<style>#}
+{#  body {#}
+{#    font-family: 'Georgia', serif;#}
+{#    background-color: #f1f1e0; /* Light cream background */#}
+{#    margin: 0;#}
+{#    padding: 20px;#}
+{#  }#}
+{##}
+{#  .container {#}
+{#    width: 90%;#}
+{#    max-width: 800px;#}
+{#    margin: 30px auto;#}
+{#    background-color: #fff8e1; /* Cream background for container */#}
+{#    padding: 20px;#}
+{#    border-radius: 10px;#}
+{#    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);#}
+{#  }#}
+{##}
+{#  h2 {#}
+{#    text-align: center;#}
+{#    color: #6f4f37; /* Brown color for heading */#}
+{#    font-size: 22px;#}
+{#    margin-bottom: 20px;#}
+{#  }#}
+{##}
+{#  .search-bar {#}
+{#    display: flex;#}
+{#    justify-content: space-between;#}
+{#    align-items: center;#}
+{#    gap: 10px;#}
+{#    margin-bottom: 20px;#}
+{#  }#}
+{##}
+{#  .search-bar input[type="date"],#}
+{#  .search-bar input[type="submit"] {#}
+{#    padding: 8px;#}
+{#    border: 1px solid #d2b48c; /* Beige border */#}
+{#    border-radius: 6px;#}
+{#    font-size: 14px;#}
+{#  }#}
+{##}
+{#  .search-bar input[type="submit"] {#}
+{#    background-color: #6f4f37; /* Brown background for submit button */#}
+{#    color: white;#}
+{#    cursor: pointer;#}
+{#    font-size: 14px;#}
+{#  }#}
+{##}
+{#  .search-bar input[type="submit"]:hover {#}
+{#    background-color: #8b6c4f; /* Slightly lighter brown on hover */#}
+{#  }#}
+{##}
+{#  table {#}
+{#    width: 100%;#}
+{#    border-collapse: collapse;#}
+{#    margin-top: 20px;#}
+{#  }#}
+{##}
+{#  th, td {#}
+{#    border: 1px solid #d2b48c; /* Beige border for table cells */#}
+{#    text-align: center;#}
+{#    padding: 10px;#}
+{#    font-size: 14px;#}
+{#  }#}
+{##}
+{#  th {#}
+{#    background-color: #6f4f37; /* Brown background for table headers */#}
+{#    color: white;#}
+{#  }#}
+{##}
+{#  td {#}
+{#    background-color: #fff8e1; /* Cream-colored cells */#}
+{#  }#}
+{##}
+{#  .rating {#}
+{#    font-size: 18px;#}
+{#    color: #f39c12; /* Gold for rating stars */#}
+{#  }#}
+{##}
+{#  @media (max-width: 600px) {#}
+{#    .search-bar {#}
+{#      flex-direction: column;#}
+{#      align-items: flex-start;#}
+{#    }#}
+{##}
+{#    .search-bar input {#}
+{#      width: 100%;#}
+{#    }#}
+{#  }#}
+{#</style>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<div class="container">#}
+{#  <h2>View User Reviews</h2>#}
+{##}
+{#  <form method="post" action="/myapp/View_Review_post/">#}
+{#    {% csrf_token %}#}
+{#    <div class="search-bar">#}
+{#      <label>From:</label>#}
+{#      <input type="date" name="textfield" id="textfield" />#}
+{##}
+{#      <label>To:</label>#}
+{#      <input type="date" name="textfield2" id="textfield2" />#}
+{##}
+{#      <input type="submit" value="Search" />#}
+{#    </div>#}
+{#  </form>#}
+{##}
+{#  <table>#}
+{#    <tr>#}
+{#      <th>Sl.no</th>#}
+{#      <th>User Name</th>#}
+{#      <th>Rating</th>#}
+{#      <th>Review</th>#}
+{#      <th>Date</th>#}
+{#    </tr>#}
+{##}
+{#    {% for i in data %}#}
+{#    <tr>#}
+{#      <td>{{ forloop.counter }}</td>#}
+{#      <td>{{ i.USER.name }}</td>#}
+{#      <td class="rating">⭐ {{ i.rating }}</td>#}
+{#      <td>{{ i.review }}</td>#}
+{#      <td>{{ i.date }}</td>#}
+{#    </tr>#}
+{#    {% endfor %}#}
+{#  </table>#}
+{#</div>#}
+{#</body>#}
+{#</html>#}
+
+
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>View Reviews</title>
+<style>
+  body {
+    font-family: 'Georgia', serif;
+    background-color: #f1f1e0; /* Light cream background */
+    margin: 0;
+    padding: 20px;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
+    background-color: #fff8e1; /* Cream background for container */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    text-align: center;
+    color: #6f4f37; /* Brown color for heading */
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .search-bar input[type="date"],
+  .search-bar input[type="submit"] {
+    padding: 8px;
+    border: 1px solid #d2b48c; /* Beige border */
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  .search-bar input[type="submit"] {
+    background-color: #6f4f37; /* Brown background for submit button */
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .search-bar input[type="submit"]:hover {
+    background-color: #8b6c4f; /* Slightly lighter brown on hover */
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th, td {
+    border: 1px solid #d2b48c; /* Beige border for table cells */
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  th {
+    background-color: #6f4f37; /* Brown background for table headers */
+    color: white;
+  }
+
+  td {
+    background-color: #fff8e1; /* Cream-colored cells */
+  }
+
+  .rating {
+    font-size: 18px;
+  }
+
+  .filled-star {
+    color: #f39c12; /* Gold for filled stars */
+  }
+
+  .empty-star {
+    color: #d3d3d3; /* Light gray for empty stars */
+  }
+
+  @media (max-width: 600px) {
+    .search-bar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .search-bar input {
+      width: 100%;
+    }
+  }
+</style>
+</head>
+
+<body>
+<div class="container">
+  <h2>View User Reviews</h2>
+
+  <form method="post" action="/myapp/View_Review_post/">
+    {% csrf_token %}
+    <div class="search-bar">
+      <label>From:</label>
+      <input type="date" name="textfield" id="textfield" />
+
+      <label>To:</label>
+      <input type="date" name="textfield2" id="textfield2" />
+
+      <input type="submit" value="Search" />
+    </div>
+  </form>
+
+  <table>
+    <tr>
+      <th>Sl.no</th>
+      <th>User Name</th>
+      <th>Rating</th>
+      <th>Review</th>
+      <th>Date</th>
+    </tr>
+
+    {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.USER.name }}</td>
+      <td class="rating">
+        {% with i.rating|add:"0" as rating %}
+          {% for _ in "12345" %}
+            {% if forloop.counter <= rating %}
+              <span class="filled-star">&#9733;</span> {# Gold star #}
+            {% else %}
+              <span class="empty-star">&#9734;</span> {# Empty star #}
+            {% endif %}
+          {% endfor %}
+        {% endwith %}
+      </td>
+      <td>{{ i.review }}</td>
+      <td>{{ i.date }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+</body>
+</html>
+

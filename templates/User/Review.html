@@ -1,0 +1,304 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="/myapp/Review_post/">#}
+{#    {% csrf_token %}#}
+{#    <input type="hidden" name="bid" id="bid" value="{{ bid }}" />#}
+{#  <table width="276" border="1">#}
+{#    <tr>#}
+{#      <td width="96">Rating</td>#}
+{#      <td width="168"><label for="textfield"></label>#}
+{#      <input type="text" name="textfield" id="textfield" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>Review</td>#}
+{#      <td><label for="textfield2"></label>#}
+{#      <input type="text" name="textfield2" id="textfield2" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td colspan="2"><input type="submit" name="button" id="button" value="Submit" /></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+
+{##}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Submit a Review</title>#}
+{#<style>#}
+{#  body {#}
+{#    font-family: 'Georgia', serif;#}
+{#    background-color: #f7f3e9;#}
+{#    margin: 0;#}
+{#    padding: 20px;#}
+{#  }#}
+{##}
+{#  .container {#}
+{#    width: 90%;#}
+{#    max-width: 600px;#}
+{#    margin: 40px auto;#}
+{#    background-color: #fffdf6;#}
+{#    border: 1px solid #ddd;#}
+{#    border-radius: 10px;#}
+{#    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);#}
+{#    padding: 20px;#}
+{#  }#}
+{##}
+{#  h2 {#}
+{#    text-align: center;#}
+{#    color: #5a3e2b;#}
+{#    margin-bottom: 20px;#}
+{#    font-size: 24px;#}
+{#    text-transform: uppercase;#}
+{#  }#}
+{##}
+{#  .rating {#}
+{#    display: flex;#}
+{#    justify-content: center;#}
+{#    gap: 5px;#}
+{#    margin-bottom: 20px;#}
+{#  }#}
+{##}
+{#  .rating input[type="radio"] {#}
+{#    display: none;#}
+{#  }#}
+{##}
+{#  .rating label {#}
+{#    font-size: 32px;#}
+{#    color: #ddd;#}
+{#    cursor: pointer;#}
+{#    transition: color 0.2s ease-in-out;#}
+{#  }#}
+{##}
+{#  .rating input[type="radio"]:checked ~ label,#}
+{#  .rating input[type="radio"]:hover ~ label {#}
+{#    color: #f5a623;#}
+{#  }#}
+{##}
+{#  .rating label:hover,#}
+{#  .rating label:hover ~ label {#}
+{#    color: #ffc107;#}
+{#  }#}
+{##}
+{#  .form-group {#}
+{#    margin-bottom: 15px;#}
+{#  }#}
+{##}
+{#  .form-group label {#}
+{#    display: block;#}
+{#    margin-bottom: 5px;#}
+{#    font-weight: bold;#}
+{#    color: #5a3e2b;#}
+{#  }#}
+{##}
+{#  .form-group input[type="text"] {#}
+{#    width: 100%;#}
+{#    padding: 10px;#}
+{#    border: 1px solid #ddd;#}
+{#    border-radius: 6px;#}
+{#    font-size: 14px;#}
+{#  }#}
+{##}
+{#  .form-group input[type="submit"] {#}
+{#    width: 100%;#}
+{#    padding: 12px;#}
+{#    background-color: #8b5d33;#}
+{#    color: #fff;#}
+{#    border: none;#}
+{#    border-radius: 6px;#}
+{#    font-size: 16px;#}
+{#    font-weight: bold;#}
+{#    cursor: pointer;#}
+{#    text-transform: uppercase;#}
+{#    transition: background-color 0.3s ease-in-out;#}
+{#  }#}
+{##}
+{#  .form-group input[type="submit"]:hover {#}
+{#    background-color: #6b4227;#}
+{#  }#}
+{#</style>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<div class="container">#}
+{#  <h2>Submit Your Review</h2>#}
+{#  <form id="form1" name="form1" method="post" action="/myapp/Review_post/">#}
+{#    {% csrf_token %}#}
+{#    <input type="hidden" name="bid" id="bid" value="{{ bid }}" />#}
+{##}
+{#    <!-- Star Rating -->#}
+{#    <div class="rating">#}
+{#      <input type="radio" name="rating" id="star5" value="5">#}
+{#      <label for="star5">&#9733;</label>#}
+{#      <input type="radio" name="rating" id="star4" value="4">#}
+{#      <label for="star4">&#9733;</label>#}
+{#      <input type="radio" name="rating" id="star3" value="3">#}
+{#      <label for="star3">&#9733;</label>#}
+{#      <input type="radio" name="rating" id="star2" value="2">#}
+{#      <label for="star2">&#9733;</label>#}
+{#      <input type="radio" name="rating" id="star1" value="1">#}
+{#      <label for="star1">&#9733;</label>#}
+{#    </div>#}
+{##}
+{#    <!-- Review Input -->#}
+{#    <div class="form-group">#}
+{#      <label for="textfield2">Review</label>#}
+{#      <input type="text" name="textfield2" id="textfield2" placeholder="Write your review here" />#}
+{#    </div>#}
+{##}
+{#    <!-- Submit Button -->#}
+{#    <div class="form-group">#}
+{#      <input type="submit" name="button" id="button" value="Submit Review" />#}
+{#    </div>#}
+{#  </form>#}
+{#</div>#}
+{#</body>#}
+{#</html>#}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Submit a Review</title>
+<style>
+  body {
+    font-family: 'Georgia', serif;
+    background-color: #f7f3e9;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: #fffdf6;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+
+  h2 {
+    text-align: center;
+    color: #5a3e2b;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+
+  .rating {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse; /* Reverse order */
+    gap: 5px;
+    margin-bottom: 20px;
+  }
+
+  .rating input[type="radio"] {
+    display: none;
+  }
+
+  .rating label {
+    font-size: 32px;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .rating input[type="radio"]:checked ~ label,
+  .rating input[type="radio"]:checked + label,
+  .rating label:hover,
+  .rating label:hover ~ label {
+    color: #f5a623; /* Gold color */
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #5a3e2b;
+  }
+
+  .form-group input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  .form-group input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #8b5d33;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .form-group input[type="submit"]:hover {
+    background-color: #6b4227;
+  }
+</style>
+</head>
+
+<body>
+<div class="container">
+  <h2>Submit Your Review</h2>
+  <form id="form1" name="form1" method="post" action="/myapp/Review_post/">
+    {% csrf_token %}
+    <input type="hidden" name="bid" id="bid" value="{{ bid }}" />
+
+    <!-- Star Rating (Left to Right) -->
+    <div class="rating">
+      <input type="radio" name="rating" id="star1" value="1">
+      <label for="star1">&#9733;</label>
+
+      <input type="radio" name="rating" id="star2" value="2">
+      <label for="star2">&#9733;</label>
+
+      <input type="radio" name="rating" id="star3" value="3">
+      <label for="star3">&#9733;</label>
+
+      <input type="radio" name="rating" id="star4" value="4">
+      <label for="star4">&#9733;</label>
+
+      <input type="radio" name="rating" id="star5" value="5">
+      <label for="star5">&#9733;</label>
+    </div>
+
+    <!-- Review Input -->
+    <div class="form-group">
+      <label for="textfield2">Review</label>
+      <input type="text" name="textfield2" id="textfield2" placeholder="Write your review here" />
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-group">
+      <input type="submit" name="button" id="button" value="Submit Review" />
+    </div>
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,817 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#{% extends "Admin/homeindex.html" %}#}
+{#{% block body %}#}
+{##}
+{#<body><form action="/myapp/All_Book/" method="post">#}
+{#<div class="container-fluid py-5">#}
+{#        <div class="container">#}
+{#            <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">#}
+{#                <h6 class="text-primary text-uppercase">All BOOk</h6>#}
+{#                <h1 class="display-5 text-uppercase mb-0">books</h1>#}
+{#            </div>#}
+{#{% csrf_token %}#}
+{##}
+{#  <table class="pull-left">#}
+{#    <tr>#}
+{#      <td>#}
+{#      <input type="text" name="textfield" id="textfield" class="form-control"></td>#}
+{#      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-primary"></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#        <br/>#}
+{#  <table class="table table-bordered">#}
+{#    <tr>#}
+{#      <td>Sl.no</td>#}
+{#      <td>user name</td>#}
+{#      <td>photo</td>#}
+{#      <td>Book name</td>#}
+{#      <td>Condition</td>#}
+{#      <td>prize</td>#}
+{#      <td>Author name</td>#}
+{#      <td>Description</td>#}
+{#    </tr>#}
+{#      {% for i in data %}#}
+{#    <tr>#}
+{#      <td>{{ forloop.counter }}</td>#}
+{#      <td>{{ i.USER.name }}</td>#}
+{#      <td><img src="{{ i.photo }}" height="75" width="75"></td>#}
+{#      <td>&nbsp;{{ i.name }}</td>#}
+{#      <td>{{ i.condition }}</td>#}
+{#      <td>&nbsp;{{ i.prize}}</td>#}
+{#      <td>{{ i.author_name }}</td>#}
+{#      <td>{{ i.description }}</td>#}
+{#    </tr>#}
+{#      {% endfor %}#}
+{#  </table>#}
+{#        </div>#}
+{# </div>#}
+{##}
+{#  <p>&nbsp;</p>#}
+{#</form>#}
+{#</body>#}
+{#{% endblock %}#}
+{#</html>#}
+
+{##}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>All Books</title>#}
+{#<style>#}
+{#    /* Styling for the book container */#}
+{#    .book-container {#}
+{#        display: flex;#}
+{#        flex-wrap: wrap;#}
+{#        gap: 20px;#}
+{#        overflow-y: scroll;#}
+{#        max-height: 600px; /* Make the container scrollable */#}
+{#        padding: 10px;#}
+{#    }#}
+{#    /* Styling for each book card */#}
+{#    .book-card {#}
+{#        width: 48%; /* Two items per row */#}
+{#        border: 1px solid #ddd;#}
+{#        border-radius: 8px;#}
+{#        padding: 15px;#}
+{#        background-color: #f9f9f9;#}
+{#        text-align: center;#}
+{#        box-sizing: border-box;#}
+{#        margin-bottom: 20px;#}
+{#    }#}
+{#    .book-card img {#}
+{#        width: 100%;#}
+{#        height: auto;#}
+{#        border-radius: 8px;#}
+{#    }#}
+{#    .book-card h5 {#}
+{#        margin-top: 10px;#}
+{#        font-size: 16px;#}
+{#        font-weight: bold;#}
+{#    }#}
+{#    .book-card p {#}
+{#        margin: 5px 0;#}
+{#        font-size: 14px;#}
+{#    }#}
+{#    /* Hide the old table */#}
+{#    .table {#}
+{#        display: none;#}
+{#    }#}
+{#</style>#}
+{#</head>#}
+{##}
+{#{% extends "Admin/homeindex.html" %}#}
+{#{% block body %}#}
+{##}
+{#<body>#}
+{#<form action="/myapp/All_Book/" method="post">#}
+{#<div class="container-fluid py-5">#}
+{#    <div class="container">#}
+{#        <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">#}
+{#            <h6 class="text-primary text-uppercase">All Books</h6>#}
+{#            <h1 class="display-5 text-uppercase mb-0">Books</h1>#}
+{#        </div>#}
+{#        {% csrf_token %}#}
+{##}
+{#        <!-- Search form -->#}
+{#        <table class="pull-left">#}
+{#            <tr>#}
+{#                <td>#}
+{#                    <input type="text" name="textfield" id="textfield" class="form-control">#}
+{#                </td>#}
+{#                <td>#}
+{#                    <input type="submit" name="button" id="button" value="Search" class="btn btn-primary">#}
+{#                </td>#}
+{#            </tr>#}
+{#        </table>#}
+{#        <br/>#}
+{##}
+{#        <!-- Book Container (Display books as cards in rows) -->#}
+{#        <div class="book-container">#}
+{#            {% for i in data %}#}
+{#            <div class="book-card">#}
+{#                <img src="{{ i.photo }}" alt="Book Image" height="150">#}
+{#                <h5>{{ i.name }}</h5>#}
+{#                <p><strong>Author:</strong> {{ i.author_name }}</p>#}
+{#                <p><strong>Condition:</strong> {{ i.condition }}</p>#}
+{#                <p><strong>Prize:</strong> {{ i.prize }}</p>#}
+{#                <p><strong>Description:</strong> {{ i.description }}</p>#}
+{#            </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{#</form>#}
+{#</body>#}
+{#{% endblock %}#}
+{#</html>#}
+
+
+{##}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>All Books</title>#}
+{#<style>#}
+{#    /* E-commerce background */#}
+{#    body {#}
+{#        font-family: 'Arial', sans-serif;#}
+{#        background-color: #f4f4f4; /* Light grey background */#}
+{#        margin: 0;#}
+{#        padding: 0;#}
+{#    }#}
+{##}
+{#    /* Styling for the book container */#}
+{#    .book-container {#}
+{#        display: flex;#}
+{#        flex-wrap: wrap;#}
+{#        gap: 20px;#}
+{#        justify-content: space-around;#}
+{#        padding: 20px;#}
+{#    }#}
+{##}
+{#    /* Styling for each book card */#}
+{#    .book-card {#}
+{#        width: 48%; /* Two items per row */#}
+{#        border: 1px solid #ddd;#}
+{#        border-radius: 8px;#}
+{#        background-color: #fff;#}
+{#        text-align: center;#}
+{#        box-sizing: border-box;#}
+{#        margin-bottom: 20px;#}
+{#        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for a card effect */#}
+{#        overflow: hidden;#}
+{#    }#}
+{##}
+{#    .book-card img {#}
+{#        width: 100%;#}
+{#        height: 250px; /* Fixed height */#}
+{#        object-fit: contain; /* Ensure the image fits without cropping */#}
+{#        border-bottom: 2px solid #ddd; /* Add a border at the bottom of the image */#}
+{#    }#}
+{##}
+{#    .book-card h5 {#}
+{#        margin-top: 15px;#}
+{#        font-size: 18px;#}
+{#        font-weight: bold;#}
+{#        color: #333;#}
+{#        text-transform: capitalize;#}
+{#    }#}
+{##}
+{#    .book-card p {#}
+{#        margin: 8px 0;#}
+{#        font-size: 14px;#}
+{#        color: #555;#}
+{#    }#}
+{##}
+{#    .book-card p strong {#}
+{#        color: #000;#}
+{#    }#}
+{##}
+{#    /* Styling for the search form */#}
+{#    .search-form {#}
+{#        margin-bottom: 30px;#}
+{#        text-align: center;#}
+{#    }#}
+{##}
+{#    /* Hide the old table */#}
+{#    .table {#}
+{#        display: none;#}
+{#    }#}
+{#</style>#}
+{#</head>#}
+{##}
+{#{% extends "Admin/homeindex.html" %}#}
+{#{% block body %}#}
+{##}
+{#<body>#}
+{#<form action="/myapp/All_Book/" method="post">#}
+{#<div class="container-fluid py-5">#}
+{#    <div class="container">#}
+{#        <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">#}
+{#            <h6 class="text-primary text-uppercase">All Books</h6>#}
+{#            <h1 class="display-5 text-uppercase mb-0">Books</h1>#}
+{#        </div>#}
+{#        {% csrf_token %}#}
+{##}
+{#        <!-- Search form -->#}
+{#        <div class="search-form">#}
+{#            <table class="pull-left">#}
+{#                <tr>#}
+{#                    <td>#}
+{#                        <input type="text" name="textfield" id="textfield" class="form-control" placeholder="Search for books...">#}
+{#                    </td>#}
+{#                    <td>#}
+{#                        <input type="submit" name="button" id="button" value="Search" class="btn btn-primary">#}
+{#                    </td>#}
+{#                </tr>#}
+{#            </table>#}
+{#        </div>#}
+{#        <br/>#}
+{##}
+{#        <!-- Book Container (Display books as cards in rows) -->#}
+{#        <div class="book-container">#}
+{#            {% for i in data %}#}
+{#            <div class="book-card">#}
+{#                <img src="{{ i.photo }}" alt="Book Image">#}
+{#                <h5>{{ i.name }}</h5>#}
+{#                <p><strong>Author:</strong> {{ i.author_name }}</p>#}
+{#                <p><strong>Condition:</strong> {{ i.condition }}</p>#}
+{#                <p><strong>Price:</strong> ${{ i.prize }}</p>#}
+{#                <p><strong>Description:</strong> {{ i.description|slice:":100" }}...</p> <!-- Truncate description -->#}
+{#            </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{#</form>#}
+{#</body>#}
+{#{% endblock %}#}
+{#</html>#}
+{##}
+{##}
+
+{##}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>All Books</title>#}
+{#<style>#}
+{#    /* General Body Styling */#}
+{#    body {#}
+{#        font-family: 'Roboto', sans-serif;#}
+{#        background-color: #f7f7f7; /* Soft background for a clean look */#}
+{#        margin: 0;#}
+{#        padding: 0;#}
+{#    }#}
+{##}
+{#    /* Main Container */#}
+{#    .container {#}
+{#        width: 90%;#}
+{#        max-width: 1200px;#}
+{#        margin: 50px auto;#}
+{#        padding: 0 20px;#}
+{#    }#}
+{##}
+{#    /* Heading Section */#}
+{#    .header {#}
+{#        text-align: center;#}
+{#        margin-bottom: 40px;#}
+{#    }#}
+{##}
+{#    .header h1 {#}
+{#        font-size: 36px;#}
+{#        font-weight: bold;#}
+{#        color: #333;#}
+{#    }#}
+{##}
+{#    .header h6 {#}
+{#        font-size: 18px;#}
+{#        font-weight: normal;#}
+{#        color: #007bff;#}
+{#    }#}
+{##}
+{#    /* Search Form */#}
+{#    .search-form {#}
+{#        text-align: center;#}
+{#        margin-bottom: 30px;#}
+{#    }#}
+{##}
+{#    .search-form input[type="text"] {#}
+{#        width: 40%;#}
+{#        padding: 10px;#}
+{#        font-size: 16px;#}
+{#        border: 1px solid #ddd;#}
+{#        border-radius: 4px;#}
+{#        margin-right: 10px;#}
+{#    }#}
+{##}
+{#    .search-form input[type="submit"] {#}
+{#        padding: 10px 20px;#}
+{#        font-size: 16px;#}
+{#        background-color: #007bff;#}
+{#        color: white;#}
+{#        border: none;#}
+{#        border-radius: 4px;#}
+{#        cursor: pointer;#}
+{#    }#}
+{##}
+{#    .search-form input[type="submit"]:hover {#}
+{#        background-color: #0056b3;#}
+{#    }#}
+{##}
+{#    /* Book Container */#}
+{#    .book-container {#}
+{#        display: flex;#}
+{#        flex-wrap: wrap;#}
+{#        justify-content: space-between;#}
+{#        gap: 30px;#}
+{#        padding: 10px 0;#}
+{#    }#}
+{##}
+{#    /* Individual Book Card */#}
+{#    .book-card {#}
+{#        width: 30%;#}
+{#        background-color: #fff;#}
+{#        border-radius: 10px;#}
+{#        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);#}
+{#        overflow: hidden;#}
+{#        transition: transform 0.3s ease, box-shadow 0.3s ease;#}
+{#        text-align: center;#}
+{#        padding: 20px;#}
+{#        cursor: pointer;#}
+{#    }#}
+{##}
+{#    .book-card:hover {#}
+{#        transform: translateY(-10px);#}
+{#        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);#}
+{#    }#}
+{##}
+{#    .book-card img {#}
+{#        width: 100%;#}
+{#        height: 300px; /* Fixed height for uniformity */#}
+{#        object-fit: cover;#}
+{#        border-radius: 10px;#}
+{#    }#}
+{##}
+{#    .book-card h5 {#}
+{#        font-size: 20px;#}
+{#        font-weight: bold;#}
+{#        color: #333;#}
+{#        margin-top: 15px;#}
+{#    }#}
+{##}
+{#    .book-card p {#}
+{#        font-size: 14px;#}
+{#        color: #555;#}
+{#        margin: 8px 0;#}
+{#    }#}
+{##}
+{#    .book-card p strong {#}
+{#        color: #000;#}
+{#    }#}
+{##}
+{#    /* Footer Section */#}
+{#    footer {#}
+{#        text-align: center;#}
+{#        padding: 20px;#}
+{#        background-color: #333;#}
+{#        color: white;#}
+{#        margin-top: 40px;#}
+{#    }#}
+{#</style>#}
+{#</head>#}
+{##}
+{#{% extends "Admin/homeindex.html" %}#}
+{#{% block body %}#}
+{##}
+{#<body>#}
+{#<form action="/myapp/All_Book/" method="post">#}
+{#    <div class="container">#}
+{##}
+{#        <!-- Header Section -->#}
+{#        <div class="header">#}
+{#            <h6>Discover Amazing Books</h6>#}
+{#            <h1>All Books</h1>#}
+{#        </div>#}
+{##}
+{#        <!-- Search Form -->#}
+{#        <div class="search-form">#}
+{#            <input type="text" name="textfield" id="textfield" placeholder="Search for books...">#}
+{#            <input type="submit" name="button" id="button" value="Search">#}
+{#        </div>#}
+{##}
+{#        <!-- Book Container (Display books as cards in rows) -->#}
+{#        <div class="book-container">#}
+{#            {% for i in data %}#}
+{#            <div class="book-card">#}
+{#                <img src="{{ i.photo }}" alt="Book Image">#}
+{#                <h5>{{ i.name }}</h5>#}
+{#                <p><strong>Author:</strong> {{ i.author_name }}</p>#}
+{#                <p><strong>Condition:</strong> {{ i.condition }}</p>#}
+{#                <p><strong>Price:</strong> ${{ i.prize }}</p>#}
+{#                <p><strong>Description:</strong> {{ i.description|slice:":100" }}...</p> <!-- Truncate description -->#}
+{#            </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{##}
+{#    </div>#}
+{##}
+{#    <!-- Footer Section -->#}
+{#    <footer>#}
+{#        <p>&copy; 2025 BookStore | All rights reserved.</p>#}
+{#    </footer>#}
+{##}
+{#</form>#}
+{#</body>#}
+{##}
+{#{% endblock %}#}
+{#</html>#}
+{##}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>All Books</title>#}
+{#<style>#}
+{#    /* General Body Styling */#}
+{#    body {#}
+{#        font-family: 'Georgia', serif;#}
+{#        background-color: #f7f2e7; /* Warm cream background */#}
+{#        margin: 0;#}
+{#        padding: 0;#}
+{#        color: #4f4b44; /* Deep brown text */#}
+{#    }#}
+{##}
+{#    /* Main Container */#}
+{#    .container {#}
+{#        width: 90%;#}
+{#        max-width: 1200px;#}
+{#        margin: 50px auto;#}
+{#        padding: 0 20px;#}
+{#    }#}
+{##}
+{#    /* Heading Section */#}
+{#    .header {#}
+{#        text-align: center;#}
+{#        margin-bottom: 40px;#}
+{#    }#}
+{##}
+{#    .header h1 {#}
+{#        font-size: 36px;#}
+{#        font-weight: bold;#}
+{#        color: #8b5d33; /* Rich brown heading */#}
+{#    }#}
+{##}
+{#    .header h6 {#}
+{#        font-size: 18px;#}
+{#        font-weight: normal;#}
+{#        color: #a67c52; /* Softer brown subheading */#}
+{#    }#}
+{##}
+{#    /* Search Form */#}
+{#    .search-form {#}
+{#        text-align: center;#}
+{#        margin-bottom: 30px;#}
+{#    }#}
+{##}
+{#    .search-form input[type="text"] {#}
+{#        width: 40%;#}
+{#        padding: 10px;#}
+{#        font-size: 16px;#}
+{#        border: 1px solid #c8a97e; /* Muted gold border */#}
+{#        border-radius: 4px;#}
+{#        margin-right: 10px;#}
+{#        background-color: #f2e9d8; /* Soft beige */#}
+{#        color: #4f4b44;#}
+{#    }#}
+{##}
+{#    .search-form input[type="submit"] {#}
+{#        padding: 10px 20px;#}
+{#        font-size: 16px;#}
+{#        background-color: #8b5d33; /* Rich brown */#}
+{#        color: white;#}
+{#        border: none;#}
+{#        border-radius: 4px;#}
+{#        cursor: pointer;#}
+{#    }#}
+{##}
+{#    .search-form input[type="submit"]:hover {#}
+{#        background-color: #6b4227; /* Darker brown hover */#}
+{#    }#}
+{##}
+{#    /* Book Container */#}
+{#    .book-container {#}
+{#        display: flex;#}
+{#        flex-wrap: wrap;#}
+{#        justify-content: space-between;#}
+{#        gap: 30px;#}
+{#        padding: 10px 0;#}
+{#    }#}
+{##}
+{#    /* Individual Book Card */#}
+{#    .book-card {#}
+{#        width: 30%;#}
+{#        background-color: #fff;#}
+{#        border-radius: 10px;#}
+{#        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);#}
+{#        overflow: hidden;#}
+{#        transition: transform 0.3s ease, box-shadow 0.3s ease;#}
+{#        text-align: center;#}
+{#        padding: 20px;#}
+{#        cursor: pointer;#}
+{#    }#}
+{##}
+{#    .book-card:hover {#}
+{#        transform: translateY(-10px);#}
+{#        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);#}
+{#    }#}
+{##}
+{#    .book-card img {#}
+{#        width: 100%;#}
+{#        height: 300px;#}
+{#        object-fit: cover;#}
+{#        border-radius: 10px;#}
+{#    }#}
+{##}
+{#    .book-card h5 {#}
+{#        font-size: 20px;#}
+{#        font-weight: bold;#}
+{#        color: #5a3e2b;#}
+{#        color: #8b5d33;#}
+{#        margin-top: 15px;#}
+{#    }#}
+{##}
+{#    .book-card p {#}
+{#        font-size: 14px;#}
+{#        color: black;#}
+{#        color: #6b4227;#}
+{#        margin: 8px 0;#}
+{#    }#}
+{##}
+{#    .book-card p strong {#}
+{#        color: #4f4b44;#}
+{#    }#}
+{##}
+{#    /* Footer Section */#}
+{#    footer {#}
+{#        text-align: center;#}
+{#        padding: 20px;#}
+{#        background-color: #4f4b44;#}
+{#        color: white;#}
+{#        margin-top: 40px;#}
+{#    }#}
+{#</style>#}
+{#</head>#}
+{##}
+{#{% extends "Admin/homeindex.html" %}#}
+{#{% block body %}#}
+{##}
+{#<body>#}
+{#<form action="/myapp/All_Book/" method="post">#}
+{#{% csrf_token %}#}
+{#    <div class="container">#}
+{##}
+{#        <!-- Header Section -->#}
+{#        <div class="header">#}
+{#            <h6>Discover Amazing Books</h6>#}
+{#            <h1>All Books</h1>#}
+{#        </div>#}
+{##}
+{#        <!-- Search Form -->#}
+{#        <div class="search-form">#}
+{#            <input type="text" name="textfield" id="textfield" placeholder="Search for books...">#}
+{#            <input type="submit" name="button" id="button" value="Search">#}
+{#        </div>#}
+{##}
+{#        <!-- Book Container (Display books as cards in rows) -->#}
+{#        <div class="book-container">#}
+{#            {% for i in data %}#}
+{#            <div class="book-card">#}
+{#                <img src="{{ i.photo }}" alt="Book Image">#}
+{#                <h5>{{ i.name }}</h5>#}
+{#                <p><strong>Author:</strong> {{ i.author_name }}</p>#}
+{#                <p><strong>Condition:</strong> {{ i.condition }}</p>#}
+{#                <p><strong>Price:</strong> ${{ i.prize }}</p>#}
+{#                <p><strong>point:</strong> {{ i.point }}</p>#}
+{#                <p><strong>Description:</strong> {{ i.description|slice:":100" }}...</p> <!-- Truncate description -->#}
+{#                <p><strong>status:</strong> {{ i.status }}</p>#}
+{#            </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{##}
+{#    </div>#}
+{##}
+{#    <!-- Footer Section -->#}
+{#    <footer>#}
+{#        <p>&copy; 2025 BookStore | All rights reserved.</p>#}
+{#    </footer>#}
+{##}
+{#</form>#}
+{#</body>#}
+{##}
+{#{% endblock %}#}
+{#</html>#}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>All Books</title>
+<style>
+    /* General Body Styling */
+    body {
+        font-family: 'Georgia', serif;
+        background-color: #f7f2e7; /* Warm cream background */
+        margin: 0;
+        padding: 0;
+        color: #4f4b44; /* Deep brown text */
+    }
+
+    /* Main Container */
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 0 20px;
+    }
+
+    /* Heading Section */
+    .header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .header h1 {
+        font-size: 36px;
+        font-weight: bold;
+        color: #8b5d33; /* Rich brown heading */
+    }
+
+    .header h6 {
+        font-size: 18px;
+        font-weight: normal;
+        color: #a67c52; /* Softer brown subheading */
+    }
+
+    /* Search Form */
+    .search-form {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .search-form input[type="text"] {
+        width: 40%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #c8a97e; /* Muted gold border */
+        border-radius: 4px;
+        margin-right: 10px;
+        background-color: #f2e9d8; /* Soft beige */
+        color: #4f4b44;
+    }
+
+    .search-form input[type="submit"] {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #8b5d33; /* Rich brown */
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .search-form input[type="submit"]:hover {
+        background-color: #6b4227; /* Darker brown hover */
+    }
+
+    /* Book Container */
+    .book-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 30px;
+        padding: 10px 0;
+    }
+
+    /* Individual Book Card */
+    .book-card {
+        width: 30%;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+        padding: 20px;
+        cursor: pointer;
+    }
+
+    .book-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .book-card img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 10px;
+    }
+
+    .book-card h5 {
+        font-size: 20px;
+        font-weight: bold;
+        color: #5a3e2b;
+        margin-top: 15px;
+    }
+
+    .book-card p {
+        font-size: 14px;
+        color: black;
+        margin: 8px 0;
+    }
+
+    .book-card p strong {
+        color: #4f4b44;
+    }
+
+    /* Footer Section */
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #4f4b44;
+        color: white;
+        margin-top: 40px;
+    }
+</style>
+</head>
+
+{% extends "Admin/homeindex.html" %}
+{% block body %}
+
+<body>
+<form action="/myapp/All_Book/" method="post">
+{% csrf_token %}
+    <div class="container">
+
+        <!-- Header Section -->
+        <div class="header">
+            <h6>Discover Amazing Books</h6>
+            <h1>All Books</h1>
+        </div>
+
+        <!-- Search Form -->
+        <div class="search-form">
+            <input type="text" name="textfield" id="textfield" placeholder="Search for books...">
+            <input type="submit" name="button" id="button" value="Search">
+        </div>
+
+        <!-- Book Container (Display books as cards in rows) -->
+        <div class="book-container">
+            {% for i in data %}
+            <div class="book-card">
+                <img src="{{ i.photo }}" alt="Book Image">
+                <h5>{{ i.name }}</h5>
+                <p><strong>Author:</strong> {{ i.author_name }}</p>
+                <p><strong>Condition:</strong> {{ i.condition }}</p>
+                <p><strong>point:</strong> {{ i.point }}</p>
+                <p><strong>Description:</strong> {{ i.description }}...</p> <!-- Truncate description -->
+                <p><strong>status:</strong> {{ i.status }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</form>
+</body>
+{% endblock %}
+</html>

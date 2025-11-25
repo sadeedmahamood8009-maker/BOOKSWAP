@@ -1,0 +1,587 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#{% extends "Admin/homeindex.html" %}#}
+{#{% block body %}#}
+{##}
+{#<body>#}
+{#<form action="/myapp/view_user_Post/" method="post">#}
+{#    <table class="px pull-left">#}
+{#    {% csrf_token %}#}
+{#  <tr>#}
+{#    <td width="168">#}
+{#      <input type="text" name="textfield" class="form-control" id="textfield" /></td>#}
+{#    <td width="233"><input type="submit" name="button" id="button" class="btn btn-success" value="Search" /></td>#}
+{#  </tr>#}
+{#</table>#}
+{#  <table class="table table-bordered">#}
+{#    <tr>#}
+{#      <td width="">Sl.no</td>#}
+{#      <td width="">Name/Photo</td>#}
+{#              <td width="101">Date of Birth</td>#}
+{#      <td width="">Address</td>#}
+{#      <td width="">Contact</td>#}
+{#        <td>Book</td>#}
+{#    </tr>#}
+{#      {% for i in data %}#}
+{#    <tr>#}
+{#      <td>{{ forloop.counter }}</td>#}
+{#      <td>{{ i.name }}<br> <img src="{{ i.photo }}" width="80" height="80"></td>#}
+{#      <td>{{ i.date_of_birth }}</td>#}
+{#      <td>&nbsp;{{ i.place }}<br>{{ i.post }}<br>{{ i.pin }}<br>{{ i.district }}<br>{{ i.state }}</td>#}
+{#      <td>{{ i.phone_number }}<br>{{ i.email }}</td>#}
+{#    <td><a href="/myapp/admin_view_Book/{{ i.id }}" class="btn btn-warning" >View Book</a><br><br></td>#}
+{#    </tr>#}
+{#      {% endfor %}#}
+{#  </table>#}
+{#  <p>&nbsp;</p>#}
+{#</form>#}
+{#</body>#}
+{#{% endblock %}#}
+{#</html>#}
+
+
+{##}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#<style>#}
+{#  .card-container {#}
+{#    display: flex;#}
+{#    flex-wrap: wrap;#}
+{#    gap: 20px;#}
+{#    justify-content: space-around;#}
+{#  }#}
+{#  .card {#}
+{#    border: 1px solid #ccc;#}
+{#    border-radius: 8px;#}
+{#    padding: 16px;#}
+{#    width: 300px;#}
+{#    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);#}
+{#  }#}
+{#  .card img {#}
+{#    width: 100%;#}
+{#    height: 200px;#}
+{#    object-fit: cover;#}
+{#    border-radius: 4px;#}
+{#  }#}
+{#  .card h3 {#}
+{#    margin-top: 0;#}
+{#  }#}
+{#  .card p {#}
+{#    margin: 8px 0;#}
+{#  }#}
+{#  .card .btn {#}
+{#    display: block;#}
+{#    margin-top: 10px;#}
+{#    text-align: center;#}
+{#    padding: 10px;#}
+{#    background-color: #f0ad4e;#}
+{#    color: white;#}
+{#    text-decoration: none;#}
+{#    border-radius: 4px;#}
+{#  }#}
+{#</style>#}
+{#</head>#}
+{##}
+{#{% extends "Admin/homeindex.html" %}#}
+{#{% block body %}#}
+{##}
+{#<body>#}
+{#<form action="/myapp/view_user_Post/" method="post">#}
+{#    <div class="container-fluid py-5">#}
+{#      <div class="container">#}
+{#        <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">#}
+{#          <h6 class="text-primary text-uppercase">user</h6>#}
+{#          <h1 class="display-5 text-uppercase mb-0">View user</h1>#}
+{#        </div>#}
+{#        {% csrf_token %}#}
+{#        <input type="text" name="textfield" class="" id="textfield" placeholder="Search..." />#}
+{#        <input type="submit" name="button" id="button" class="btn btn-success" value="Search" />#}
+{#</form>#}
+{#<br>#}
+{#<div class="card-container">#}
+{#  {% for i in data %}#}
+{#    <div class="card">#}
+{#      <img src="{{ i.photo }}" alt="{{ i.name }}" />#}
+{#      <h3>{{ i.name }}</h3>#}
+{#      <p><strong>Date of Birth:</strong> {{ i.date_of_birth }}</p>#}
+{#      <p><strong>Address:</strong> {{ i.place }}, {{ i.post }}, {{ i.pin }}, {{ i.district }}, {{ i.state }}</p>#}
+{#      <p><strong>Contact:</strong> {{ i.phone_number }}<br>{{ i.email }}</p>#}
+{#      <a href="/myapp/admin_view_Book/{{ i.id }}" class="btn">View Book</a>#}
+{#    </div>#}
+{#  {% endfor %}#}
+{##}
+{##}
+{#</body>#}
+{#{% endblock %}#}
+{#</html>#}
+
+{##}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>View User</title>#}
+{#<style>#}
+{#  .card-container {#}
+{#    display: flex;#}
+{#    flex-wrap: wrap;#}
+{#    gap: 20px;#}
+{#    justify-content: space-around;#}
+{#  }#}
+{#  .card {#}
+{#    border: 1px solid #ccc;#}
+{#    border-radius: 8px;#}
+{#    padding: 16px;#}
+{#    width: 300px;#}
+{#    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);#}
+{#  }#}
+{#  .card img {#}
+{#    width: 100%;#}
+{#    height: 200px;#}
+{#    object-fit: cover;#}
+{#    border-radius: 4px;#}
+{#  }#}
+{#  .card h3 {#}
+{#    margin-top: 0;#}
+{#  }#}
+{#  .card p {#}
+{#    margin: 8px 0;#}
+{#  }#}
+{#  .card .btn {#}
+{#    display: block;#}
+{#    margin-top: 10px;#}
+{#    text-align: center;#}
+{#    padding: 10px;#}
+{#    background-color: #8b5d33;#}
+{#    color: white;#}
+{#    text-decoration: none;#}
+{#    border-radius: 4px;#}
+{#  }#}
+{#  .card .btn:hover {#}
+{#    background-color: #8b5d33;#}
+{#  }#}
+{#  .search-container {#}
+{#    display: flex;#}
+{#    justify-content: center;#}
+{#    margin-bottom: 20px;#}
+{#  }#}
+{#  .search-container input[type="text"] {#}
+{#    padding: 10px;#}
+{#    width: 300px;#}
+{#    border: 1px solid #ccc;#}
+{#    border-radius: 4px;#}
+{#  }#}
+{#  .search-container input[type="submit"] {#}
+{#    margin-left: 10px;#}
+{#    padding: 10px 20px;#}
+{#    background-color: #8b5d33;#}
+{#    color: white;#}
+{#    border: none;#}
+{#    border-radius: 4px;#}
+{#    cursor: pointer;#}
+{#  }#}
+{#  .search-container input[type="submit"]:hover {#}
+{#    background-color: #6b4227;#}
+{#  }#}
+{#</style>#}
+{#</head>#}
+{##}
+{#{% extends "Admin/homeindex.html" %}#}
+{#{% block body %}#}
+{##}
+{#<body>#}
+{#  <form action="/myapp/view_user_Post/" method="post">#}
+{#    <div class="container-fluid py-5">#}
+{#      <div class="container">#}
+{#        <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">#}
+{#          <h6 class="text-primary text-uppercase">User</h6>#}
+{#          <h1 class="display-5 text-uppercase mb-0">View User</h1>#}
+{#        </div>#}
+{#        {% csrf_token %}#}
+{#        <div class="search-container">#}
+{#          <input type="text" name="textfield" id="textfield" placeholder="Search..." />#}
+{#          <input type="submit" name="button" id="button" value="Search" />#}
+{#        </div>#}
+{#      </div>#}
+{#    </div>#}
+{#  </form>#}
+{##}
+{#  <div class="container">#}
+{#    <div class="card-container">#}
+{#      {% for i in data %}#}
+{#        <div class="card">#}
+{#          <img src="{{ i.photo }}" alt="{{ i.name }}" width="100" height="100" />#}
+{#          <h3>{{ i.name }}</h3>#}
+{#          <p><strong>Date of Birth:</strong> {{ i.date_of_birth }}</p>#}
+{#          <p><strong>Address:</strong> {{ i.place }}, {{ i.post }}, {{ i.pin }}, {{ i.district }}, {{ i.state }}</p>#}
+{#          <p><strong>Contact:</strong> {{ i.phone_number }}<br>{{ i.email }}</p>#}
+{#          <a href="/myapp/admin_view_Book/{{ i.id }}" class="btn">View Book</a>#}
+{#        </div>#}
+{#      {% endfor %}#}
+{#    </div>#}
+{#  </div>#}
+{#</body>#}
+{##}
+{#{% endblock %}#}
+{#</html>#}
+{##}
+
+{##}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>View User</title>#}
+{#<style>#}
+{#  body {#}
+{#    font-family: 'Georgia', serif;#}
+{#    background-color: #f7f3e9;#}
+{#    margin: 0;#}
+{#    padding: 0;#}
+{#    color: #5a3e2b;#}
+{#  }#}
+{##}
+{#  .container {#}
+{#    width: 90%;#}
+{#    margin: 20px auto;#}
+{#  }#}
+{##}
+{#  .header {#}
+{#    text-align: center;#}
+{#    margin-bottom: 30px;#}
+{#  }#}
+{##}
+{#  .header h6 {#}
+{#    color: #8b5d33;#}
+{#    text-transform: uppercase;#}
+{#    letter-spacing: 2px;#}
+{#    margin-bottom: 10px;#}
+{#  }#}
+{##}
+{#  .header h1 {#}
+{#    color: #5a3e2b;#}
+{#    font-size: 36px;#}
+{#    text-transform: uppercase;#}
+{#  }#}
+{##}
+{#  .search-container {#}
+{#    display: flex;#}
+{#    justify-content: center;#}
+{#    margin-bottom: 20px;#}
+{#  }#}
+{##}
+{#  .search-container input[type="text"] {#}
+{#    padding: 10px;#}
+{#    width: 300px;#}
+{#    border: 1px solid #ccc;#}
+{#    border-radius: 6px;#}
+{#    font-size: 14px;#}
+{#  }#}
+{##}
+{#  .search-container input[type="submit"] {#}
+{#    margin-left: 10px;#}
+{#    padding: 10px 20px;#}
+{#    background-color: #8b5d33;#}
+{#    color: white;#}
+{#    border: none;#}
+{#    border-radius: 6px;#}
+{#    cursor: pointer;#}
+{#    font-size: 14px;#}
+{#  }#}
+{##}
+{#  .search-container input[type="submit"]:hover {#}
+{#    background-color: #6b4227;#}
+{#  }#}
+{##}
+{#  .card-container {#}
+{#    display: flex;#}
+{#    flex-wrap: wrap;#}
+{#    gap: 20px;#}
+{#    justify-content: space-around;#}
+{#  }#}
+{##}
+{#  .card {#}
+{#    background-color: #fffdf6;#}
+{#    border: 1px solid #d6b28d;#}
+{#    border-radius: 10px;#}
+{#    padding: 16px;#}
+{#    width: 300px;#}
+{#    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);#}
+{#    transition: transform 0.3s ease-in-out;#}
+{#  }#}
+{##}
+{#  .card:hover {#}
+{#    transform: scale(1.03);#}
+{#  }#}
+{##}
+{#  .card img {#}
+{#    width: 100%;#}
+{#    height: 200px;#}
+{#    object-fit: cover;#}
+{#    border-radius: 6px;#}
+{#  }#}
+{##}
+{#  .card h3 {#}
+{#    margin-top: 0;#}
+{#    color: #5a3e2b;#}
+{#  }#}
+{##}
+{#  .card p {#}
+{#    margin: 8px 0;#}
+{#    color: #7a5539;#}
+{#  }#}
+{##}
+{#  .card .btn {#}
+{#    display: block;#}
+{#    margin-top: 10px;#}
+{#    text-align: center;#}
+{#    padding: 10px;#}
+{#    background-color: #c8a97e;#}
+{#    color: white;#}
+{#    text-decoration: none;#}
+{#    border-radius: 6px;#}
+{#    font-size: 14px;#}
+{#    transition: background 0.3s;#}
+{#  }#}
+{##}
+{#  .card .btn:hover {#}
+{#    background-color: #b27c5c;#}
+{#  }#}
+{##}
+{#  .no-data {#}
+{#    text-align: center;#}
+{#    margin-top: 20px;#}
+{#    color: #5a3e2b;#}
+{#    font-size: 18px;#}
+{#  }#}
+{#</style>#}
+{#</head>#}
+{##}
+{#{% extends "Admin/homeindex.html" %}#}
+{#{% block body %}#}
+{##}
+{#<body>#}
+{#  <form action="/myapp/view_user_Post/" method="post">#}
+{#    <div class="container py-5">#}
+{#      <div class="header">#}
+{#        <h6>User</h6>#}
+{#        <h1>View User</h1>#}
+{#      </div>#}
+{#      {% csrf_token %}#}
+{#      <div class="search-container">#}
+{#        <input type="text" name="textfield" id="textfield" placeholder="Search..." />#}
+{#        <input type="submit" name="button" id="button" value="Search" />#}
+{#      </div>#}
+{#    </div>#}
+{#  </form>#}
+{##}
+{#  <div class="container">#}
+{#    <div class="card-container">#}
+{#      {% for i in data %}#}
+{#        <div class="card">#}
+{#          <img src="{{ i.photo }}" alt="{{ i.name }}" />#}
+{#          <h3>{{ i.name }}</h3>#}
+{#          <p><strong>Date of Birth:</strong> {{ i.date_of_birth }}</p>#}
+{#          <p><strong>Address:</strong> {{ i.place }}, {{ i.post }}, {{ i.pin }}, {{ i.district }}, {{ i.state }}</p>#}
+{#          <p><strong>Contact:</strong> {{ i.phone_number }}<br>{{ i.email }}</p>#}
+{#          <a href="/myapp/admin_view_Book/{{ i.id }}" class="btn">View Book</a>#}
+{#        </div>#}
+{#      {% empty %}#}
+{#        <p class="no-data">No users found.</p>#}
+{#      {% endfor %}#}
+{#    </div>#}
+{#  </div>#}
+{#</body>#}
+{##}
+{#{% endblock %}#}
+{#</html>#}
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>View Users</title>
+<style>
+  body {
+    font-family: 'Georgia', serif;
+    background-color: #f7f3e9;
+    margin: 0;
+    padding: 0;
+    color: #5a3e2b;
+  }
+
+  .container {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .header h6 {
+    color: #8b5d33;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  .header h1 {
+    color: #5a3e2b;
+    font-size: 42px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+  .search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .search-container input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  .search-container input[type="submit"] {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #8b5d33;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .search-container input[type="submit"]:hover {
+    background-color: #6b4227;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+  }
+
+  .card {
+    background-color: #fffdf6;
+    border: 1px solid #d6b28d;
+    border-radius: 10px;
+    padding: 16px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+  }
+
+  .card:hover {
+    transform: scale(1.03);
+  }
+
+  .card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 10px;
+    border: 3px solid #d6b28d;
+  }
+
+  .card h3 {
+    margin-top: 0;
+    color: #5a3e2b;
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  .card p {
+    margin: 8px 0;
+{#    color: #7a5539;#}
+    color: black;
+    font-size: 14px;
+  }
+
+  .card .btn {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    padding: 10px;
+    background-color: #c8a97e;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: background 0.3s;
+  }
+
+  .card .btn:hover {
+    background-color: #b27c5c;
+  }
+
+  .no-data {
+    text-align: center;
+    margin-top: 20px;
+    color: #5a3e2b;
+    font-size: 18px;
+  }
+</style>
+</head>
+
+{% extends "Admin/homeindex.html" %}
+{% block body %}
+
+<body>
+  <form action="/myapp/view_user_Post/" method="post">
+    <div class="container py-5">
+      <div class="header">
+        <h6>Users List</h6>
+        <h1>Explore Registered Users</h1>
+      </div>
+      {% csrf_token %}
+      <div class="search-container">
+        <input type="text" name="textfield" id="textfield" placeholder="Search..." />
+        <input type="submit" name="button" id="button" value="Search" />
+      </div>
+    </div>
+  </form>
+
+  <div class="container">
+    <div class="card-container">
+      {% for i in data %}
+        <div class="card">
+          <img src="{{ i.photo }}" alt="{{ i.name }}" />
+          <h3>{{ i.name }}</h3>
+          <p><strong>Date of Birth:</strong> {{ i.date_of_birth }}</p>
+          <p><strong>Address:</strong> {{ i.place }}, {{ i.post }}, {{ i.pin }}, {{ i.district }}, {{ i.state }}</p>
+          <p><strong>Contact:</strong> {{ i.phone_number }}<br>{{ i.email }}</p>
+          <a href="/myapp/admin_view_Book/{{ i.id }}" class="btn">View Books</a>
+        </div>
+      {% empty %}
+        <p class="no-data">No users found.</p>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+
+{% endblock %}
+</html>

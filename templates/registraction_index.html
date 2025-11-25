@@ -1,0 +1,204 @@
+{#<!doctype html>#}
+{#<html lang="en">#}
+{#  <head>#}
+{#  	<title>register</title>#}
+{#    <meta charset="utf-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">#}
+{##}
+{#	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">#}
+{##}
+{#	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">#}
+{##}
+{#	<link rel="stylesheet" href="/static/login/css/style.css">#}
+{##}
+{#	</head>#}
+{#	<body class="img" style="background-image: url(/static/login/images/bg.jpg);">#}
+{#	<section class="ftco-section">#}
+{#		<div class="container">#}
+{#			<div class="row justify-content-center">#}
+{#				<div class="col-md-6 text-center mb-5">#}
+{#					<h2 class="heading-section">Register</h2>#}
+{#				</div>#}
+{#			</div>#}
+{#			<div class="row justify-content-center">#}
+{#				<div class="col-md-6 col-lg-4">#}
+{#					<div class="login-wrap p-0">#}
+{#		      	<h3 class="mb-4 text-center">Have an account?</h3>#}
+{#		      	<form action="/myapp/registeration_post/" class="signin-form" enctype="multipart/form-data" method="post">#}
+{#                    {% csrf_token %}#}
+{#		      		<div class="form-group">#}
+{#		      			<input type="text" class="form-control" placeholder="Username"  name="textfield" required>#}
+{#		      		</div>#}
+{#                    <div class="form-group">#}
+{#		      			<input type="date" class="form-control" placeholder="Date-of-birth" name="textfield2" required>#}
+{#		      		</div>#}
+{#                    <div class="form-group">#}
+{#		      			<input type="text" class="form-control" placeholder="Place" name="textfield3" required>#}
+{#		      		</div>#}
+{#                    <div class="form-group">#}
+{#		      			<input type="text" class="form-control" placeholder="Post" name="textfield4" required>#}
+{#		      		</div>#}
+{#                    <div class="form-group">#}
+{#		      			<input type="text" class="form-control" placeholder="PinCode" name="textfield5" required>#}
+{#		      		</div>#}
+{#                    <div class="form-group">#}
+{#		      			<input type="text" class="form-control" placeholder="District" name="textfield6" required>#}
+{#		      		</div>#}
+{#                    <div class="form-group">#}
+{#		      			<input type="text" class="form-control" placeholder="State" name="textfield7" required>#}
+{#		      		</div>#}
+{#                    <div class="form-group" style="margin-left: 22px">#}
+{#                        <label>Gender</label><br />#}
+{#                        <label>#}
+{#                            <input type="radio" name="Gender" value="Male" id="Gender_0" required> Male#}
+{#                        </label><br />#}
+{#                        <label>#}
+{#                            <input type="radio" name="Gender" value="Female" id="Gender_1" required> Female#}
+{#                        </label><br />#}
+{#                        <label>#}
+{#                            <input type="radio" name="Gender" value="Other" id="Gender_2" required> Other#}
+{#                        </label>#}
+{#                    </div>#}
+{#                    <div class="form-group">#}
+{#		      			<input type="text" class="form-control" placeholder="Phone number" name="textfield10" required>#}
+{#		      		</div>#}
+{##}
+{#                    <div class="form-group">#}
+{#		      			<input type="file" class="form-control" placeholder="Photo" name="filefield" required>#}
+{#		      		</div>#}
+{#                    <div class="form-group">#}
+{#		      			<input type="text" class="form-control" placeholder="Email" name="textfield11" required>#}
+{#		      		</div>#}
+{#                    <div class="form-group">#}
+{#		      			<input type="text" class="form-control" placeholder="Refference-id" name="textfield14" required>#}
+{#		      		</div>#}
+{#                    <div class="form-group">#}
+{#                      <input id="password-field" type="password" class="form-control" placeholder="Password" name="textfield12" required>#}
+{#                      <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>#}
+{#                    </div>#}
+{#                      <div class="form-group">#}
+{#                      <input id="password-field" type="password" class="form-control" placeholder="confirm-Password" name="textfield13" required>#}
+{#                      <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>#}
+{#                    </div>#}
+{#                    <div class="form-group">#}
+{#                        <button type="submit" class="form-control btn btn-primary submit px-3">Register</button>#}
+{#                    </div>#}
+{#	          </form>#}
+{#	          <p class="w-100 text-center">&mdash; Or Sign Up With &mdash;</p>#}
+{#	          <div class="social d-flex text-center">#}
+{#	          	<a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>#}
+{#	          	<a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>#}
+{#	          </div>#}
+{#		      </div>#}
+{#				</div>#}
+{#			</div>#}
+{#		</div>#}
+{#	</section>#}
+{##}
+{#	<script src="/static/login/js/jquery.min.js"></script>#}
+{#  <script src="/static/login/js/popper.js"></script>#}
+{#  <script src="/static/login/js/bootstrap.min.js"></script>#}
+{#  <script src="/static/login/js/main.js"></script>#}
+{##}
+{#	</body>#}
+{#</html>#}
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Register | Bookstrap</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/login/css/style.css">
+  </head>
+  <body class="img" style="background-image: url(/static/login/images/bg.jpg);">
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6 text-center mb-4">
+            <h2 class="heading-section">Create Your Account</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-6 col-lg-5">
+            <div class="login-wrap p-4">
+              <h3 class="mb-3 text-center">Already have an account? <a href="/myapp/login_post/">Login</a></h3>
+              <form action="/myapp/registeration_post/" class="signin-form" enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Username" name="textfield" required>
+                </div>
+                <div class="form-group">
+                  <input type="date" class="form-control" name="textfield2" required>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Place" name="textfield3" required>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Post" name="textfield4" required>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Pin Code" name="textfield5" required>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="District" name="textfield6" required>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="State" name="textfield7" required>
+                </div>
+                <div class="form-group" style="margin-left: 15px">
+                  <label>Gender</label>
+                  <div class="d-flex">
+                    <label class="mr-3"><input type="radio" name="Gender" value="Male" required> Male</label>
+                    <label class="mr-3"><input type="radio" name="Gender" value="Female" required> Female</label>
+                    <label><input type="radio" name="Gender" value="Other" required> Other</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Phone Number" name="textfield10" required>
+                </div>
+                <div class="form-group">
+                  <input type="file" class="form-control" name="filefield" required>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" placeholder="Email" name="textfield11" required>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Reference ID (Optional)" name="textfield14">
+                </div>
+                <div class="form-group">
+                  <input id="password" type="password" class="form-control" placeholder="Password" name="textfield12" required>
+                  <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                </div>
+                <div class="form-group">
+                  <input id="confirm-password" type="password" class="form-control" placeholder="Confirm Password" name="textfield13" required>
+                  <span toggle="#confirm-password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="form-control btn btn-primary submit px-3">Register</button>
+                </div>
+              </form>
+              <p class="w-100 text-center mt-3">&mdash; Or Sign Up With &mdash;</p>
+              <div class="social d-flex text-center">
+                <a href="https://www.facebook.com/login/" class="px-2 py-2 mr-md-1 rounded"><span class="fa fa-facebook mr-2"></span> Facebook</a>
+                <a href="https://x.com/i/flow/login/" class="px-2 py-2 ml-md-1 rounded"><span class="fa fa-twitter mr-2"></span> Twitter</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="/static/login/js/jquery.min.js"></script>
+    <script src="/static/login/js/popper.js"></script>
+    <script src="/static/login/js/bootstrap.min.js"></script>
+    <script src="/static/login/js/main.js"></script>
+  </body>
+</html>
+
+
+

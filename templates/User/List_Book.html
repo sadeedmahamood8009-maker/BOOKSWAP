@@ -1,0 +1,187 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="/myapp/List_Book_post/" enctype="multipart/form-data">#}
+{#{% csrf_token %}#}
+{#  <table width="327" border="1">#}
+{#    <tr>#}
+{#      <th width="139" scope="row">Name</th>#}
+{#      <td width="172"><label for="textfield"></label>#}
+{#      <input type="text" name="textfield" id="textfield" /></td>#}
+{#    </tr>#}
+{#       <tr>#}
+{#      <th width="139" scope="row">photo</th>#}
+{#      <td width="172"><label for="textfield"></label>#}
+{#      <input type="file" name="photo" id="textfield" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th scope="row">Condition</th>#}
+{#      <td><label for="textfield2"></label>#}
+{#      <input type="text" name="textfield2" id="textfield2" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th scope="row">Prize</th>#}
+{#      <td><label for="textfield3"></label>#}
+{#      <input type="text" name="textfield3" id="textfield3" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th scope="row">Author Name</th>#}
+{#      <td><label for="textfield4"></label>#}
+{#      <input type="text" name="textfield4" id="textfield4" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th scope="row">description</th>#}
+{#      <td><label for="textfield5"></label>#}
+{#      <input type="text" name="textfield5" id="textfield5" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th height="33" colspan="2" scope="row"><input type="submit" name="button" id="button" value="Submit" /></th>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>List a Book</title>
+<style>
+  body {
+    font-family: 'Georgia', serif;
+    background-color: #f7f3e9;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fffdf6;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    text-align: center;
+    color: #5a3e2b;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-size: 16px;
+    color: #5a3e2b;
+    margin-bottom: 5px;
+  }
+
+  input[type="text"],
+  input[type="file"] {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  input[type="file"] {
+    background-color: #f7f3e9;
+  }
+
+  input[type="submit"] {
+    background-color: #8b5d33;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #6b4227;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .note {
+    font-size: 12px;
+    color: #8b5d33;
+    margin-top: -15px;
+    margin-bottom: 15px;
+  }
+</style>
+</head>
+
+<body>
+<div class="container">
+  <h1>List a Book</h1>
+  <form id="form1" name="form1" method="post" action="/myapp/List_Book_post/" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="textfield">Book Name</label>
+      <input type="text" name="textfield" id="textfield" placeholder="Enter the book name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="photo">Photo</label>
+      <input type="file" name="photo" id="photo" required />
+      <p class="note">Upload an image of the book (JPEG/PNG).</p>
+    </div>
+
+    <div class="form-group">
+      <label for="textfield2">Condition</label>
+      <input type="text" name="textfield2" id="textfield2" placeholder="e.g., New, Used" required />
+    </div>
+
+    <div class="form-group">
+      <label for="textfield3">Price</label>
+      <input type="text" name="textfield3" id="textfield3" placeholder="Enter the price" required />
+    </div>
+
+    <div class="form-group">
+      <label for="textfield4">Author Name</label>
+      <input type="text" name="textfield4" id="textfield4" placeholder="Enter the author's name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="textfield5">Description</label>
+      <input type="text" name="textfield5" id="textfield5" placeholder="Enter a short description" required />
+    </div>
+
+      <div class="form-group">
+      <label for="textfield56">point</label>
+      <input type="text" name="textfield6" id="textfield6" placeholder="Enter point [more than 10] " required />
+    </div>
+
+
+
+    <div class="form-group">
+      <input type="submit" name="button" id="button" value="Submit" />
+    </div>
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,180 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#{% extends "Admin/homeindex.html" %}#}
+{#{% block body %}#}
+{##}
+{#<body><form action="/myapp/Send_notification_POST/" method="post">#}
+{#     {% csrf_token %}#}
+{#     <div class="container-fluid py-5">#}
+{#        <div class="container">#}
+{#            <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">#}
+{#                <h6 class="text-primary text-uppercase">notification</h6>#}
+{#                <h1 class="display-5 text-uppercase mb-0">sent notification</h1>#}
+{#            </div>#}
+{#  <table class="table table-bordered">#}
+{#    <tr>#}
+{#      <td>Notification</td>#}
+{#      <td><label for="textfield"></label>#}
+{#          <textarea name="textarea" id="textarea" rows="2" cols="130"></textarea></td>#}
+{#      <input type="text" name="textfield" id="textfield" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td><input type="submit" name="button" id="button" value="Submit" /></td>#}
+{#      <td>&nbsp;</td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#{% endblock %}#}
+{#</html>#}
+
+
+{##}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Send Notification</title>#}
+{#<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">#}
+{#<style>#}
+{#  .container-fluid {#}
+{#    background-color: #f7f2e7; /* Warm beige */#}
+{#    padding: 30px;#}
+{#  }#}
+{#  .form-control {#}
+{#    width: 100%;#}
+{#    padding: 10px;#}
+{#    border-radius: 4px;#}
+{#    border: 1px solid #c8a97e; /* Warm brown */#}
+{#    background-color: #f2e9d8; /* Soft cream */#}
+{#    color: #4f4b44; /* Dark brown */#}
+{#    font-family: 'Georgia', serif;#}
+{#  }#}
+{#  .btn-submit {#}
+{#    background-color: #c8a97e; /* Warm brown */#}
+{#    color: white;#}
+{#    padding: 10px 20px;#}
+{#    border: none;#}
+{#    border-radius: 4px;#}
+{#    cursor: pointer;#}
+{#    font-family: 'Georgia', serif;#}
+{#    font-size: 16px;#}
+{#  }#}
+{#  .btn-submit:hover {#}
+{#    background-color: #a4825f; /* Darker brown */#}
+{#  }#}
+{#  .table-bordered {#}
+{#    margin-top: 20px;#}
+{#    border: 1px solid #c8a97e; /* Warm brown */#}
+{#    background-color: #f2e9d8; /* Soft cream */#}
+{#    font-family: 'Georgia', serif;#}
+{#    color: #4f4b44; /* Dark brown */#}
+{#  }#}
+{#</style>#}
+{#</head>#}
+{##}
+{#{% extends "Admin/homeindex.html" %}#}
+{#{% block body %}#}
+{##}
+{#<body>#}
+{#  <form action="/myapp/Send_notification_POST/" method="post">#}
+{#    {% csrf_token %}#}
+{#    <div class="container-fluid py-5">#}
+{#      <div class="container">#}
+{#        <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">#}
+{#          <h6 class="text-primary text-uppercase">Notification</h6>#}
+{#          <h1 class="display-5 text-uppercase mb-0">Send Notification</h1>#}
+{#        </div>#}
+{#        <table class="table table-bordered">#}
+{#          <tr>#}
+{#            <td><label for="textarea"><h6>Notification</h6></label></td>#}
+{#            <td><textarea class="form-control" name="textarea" id="textarea" rows="4"></textarea></td>#}
+{#          </tr>#}
+{#          <tr>#}
+{#            <td colspan="2" class="text-right">#}
+{#              <input type="submit" name="button" id="button" class="btn-submit" value="Submit" />#}
+{#            </td>#}
+{#          </tr>#}
+{#        </table>#}
+{#      </div>#}
+{#    </div>#}
+{#  </form>#}
+{#</body>#}
+{#{% endblock %}#}
+{#</html>#}
+
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Send Notification - BookSwap</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Georgia', serif;
+    background-color: #f7f2e7; /* Warm beige */
+    color: #4f4b44; /* Dark brown */
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 700px;
+    margin: 50px auto;
+    background-color: #fffdf6;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .form-control {
+    border: 1px solid #c8a97e; /* Warm brown */
+    background-color: #f2e9d8; /* Soft cream */
+    color: #4f4b44;
+  }
+  .btn-submit {
+    background-color: #8b5d33; /* Vintage brown */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+  }
+  .btn-submit:hover {
+    background-color: #6b4227; /* Darker brown */
+  }
+  h1 {
+    text-align: center;
+    color: #5a3e2b;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .table-bordered {
+    border: 1px solid #c8a97e;
+  }
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Send Notification</h1>
+    <form action="/myapp/Send_notification_POST/" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="textarea"><strong>Notification Message</strong></label>
+        <textarea class="form-control" name="textarea" id="textarea" rows="4" placeholder="Type your notification here..."></textarea>
+      </div>
+      <div class="text-center">
+        <input type="submit" name="button" class="btn-submit" value="Submit" />
+      </div>
+    </form>
+  </div>
+</body>
+</html>
