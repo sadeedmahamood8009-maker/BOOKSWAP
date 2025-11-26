@@ -1,54 +1,51 @@
-📚 BookSwap — A Community-Driven Book Exchange Platform
+# BookSwap — Community-Driven Book Exchange Platform
 
-BookSwap is a Django-based web application where users can buy, sell, and exchange physical books using Book Coins instead of real money. It focuses on building a community of book lovers with interactive features like chat, book requests, and a vintage-themed UI.
+BookSwap is a Django-based platform where users can buy, sell, and exchange physical books using Book Coins instead of real money.
+The platform focuses on a community-driven exchange system with chat features, request tracking, and a vintage minimalist design inspired by old bookstores and libraries.
 
-✨ Features
-👤 User Module
+# Key Features
+## User Module
 
-User Registration & Login
+Registration and login system
 
 Earn 5 Book Coins on each login
 
-Referral System (earn 2 coins per referral)
+Referral system (earn 2 Book Coins per referral)
 
-View/Edit profile
+View and edit user profile
 
-Browse all books with images and descriptions
+Browse all listed books with images and descriptions
 
-Request books & track request status
+Request books and track request status
 
-Private Chat for book transactions
+Private chat for book transactions
 
 Public community chat
 
-Complaint / Issue reporting system
+Complaint / issue reporting module
 
-🛠 Admin Module
+## Admin Module
 
-Manage Users
+Manage users
 
-Approve / Reject Book Requests
+Approve or reject book requests
 
-Manage Book Listings
+Manage book listings
 
-Handle Complaints
+Handle user complaints
 
-Track Book Coin Transactions
+Track Book Coin transactions
 
-🎨 Design Theme
+## Design Theme — Vintage Minimalist
 
-Vintage Minimalist UI inspired by bookstores & old libraries
-
-Warm bookish colors (cream, beige, brown, muted gold)
+Warm, bookish colors: cream, beige, brown, muted gold
 
 Georgia serif typography
 
-Clean, elegant layouts
+Clean, minimal, library-inspired layouts
 
-Highly readable and aesthetic for book lovers
 
-🏗 Tech Stack
-Frontend
+## Frontend
 
 HTML
 
@@ -58,7 +55,7 @@ Bootstrap
 
 JavaScript
 
-Backend
+## Backend
 
 Python
 
@@ -68,8 +65,21 @@ Database
 
 SQLite / MySQL
 
-Tools
+## Tools
 
 PyCharm / VS Code
 
 Git & GitHub
+
+## How to Run the Project
+1. Clone the repository
+git clone https://github.com/sadeedmahamood/BOOKSWAP.git
+
+2. Install dependencies
+pip install -r requirements.txt
+
+3. Apply migrations
+python manage.py migrate
+
+4. Start the development server
+python manage.py runserver
